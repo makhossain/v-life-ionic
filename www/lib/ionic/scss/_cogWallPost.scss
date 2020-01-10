@@ -1,0 +1,105 @@
+.WallPost {
+    &__author {
+        padding: 10px 0;
+        text-align: center;
+        &-avatar {
+            width: 60px;
+            height: 60px;
+            display: inline-block;
+            border-radius: 99px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        &-name {
+            color: $calm;
+        }
+        &-location {
+            font-size: 80%;
+            line-height: 1;
+            color: #838383;
+        }
+        &-time {
+            font-size: 80%;
+            color: #8F8F8F;
+        }
+    }
+    &__cover {}
+    &__cata {
+        text-align: center;
+        padding: 20px 0;
+        img {
+            max-height: 35px;
+        }
+        p {
+            margin-top: 5px;
+            color: #545454;
+        }
+    }
+    &-comment {
+        border-top: 1px solid #D5D5D5;
+        padding-bottom: 50px;
+        &Wrapper {
+            padding: 0 20px;
+        }
+    }
+    &__comment {
+        border-top: 1px solid #D5D5D5;
+        padding: 10px 0;
+        margin-top: -1px;
+        &-avatar {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0,0,0,.3);
+            border-radius: 99px;
+            overflow: hidden;
+            float: left;
+            img {
+                width: 100%;
+            }
+        }
+        &Clear {
+            padding-left: 35px;
+        }
+
+        &-name {
+            color: $calm;
+            font-size: 90%;
+            line-height: 1.4;
+        }
+        &-time {
+            color: #777;
+            font-size: 85%;
+            line-height: 1;
+        }
+        &-message {
+            margin-top: 10px;
+            color: #777;
+            font-size: 85%;
+        }
+    }
+
+
+    &__typeMessage {
+        border-top: 1px solid #D5D5D5;
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        bottom: 0;
+        //margin-bottom: 49px;
+        background-color: #fff;
+        .item-input-inset {
+            padding: 0;
+        }
+        .item-input-wrapper {
+            background-color: transparent;
+        }
+        .button {
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+        }
+    }
+}

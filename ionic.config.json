@@ -1,0 +1,12 @@
+{
+  "name": "Helioz365",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "watchPatterns": [],
+  "id": "9adf1a6c",
+  "gulp": {
+    "enabled": false
+  }
+}

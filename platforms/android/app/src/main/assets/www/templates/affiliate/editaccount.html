@@ -1,0 +1,65 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Edit Account</h3>
+    </div>
+
+    <div class="Post__details">
+
+        <!-- statistics started -->
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="john@suhr.com">
+          </label>     
+
+          <label class="item item-input">
+            <span class="input-label">First Name</span>
+            <input type="text" placeholder="First Name">
+          </label>
+
+          <label class="item item-input">
+            <span class="input-label">Last Name</span>
+            <input type="text" placeholder="Last Name">
+          </label>
+
+          <label class="item item-input">
+            <span class="input-label">Country</span>
+            <select name="Country" id="Country">
+              <option>Bangladesh</option>
+              <option>India</option>
+              <option>Pakistan</option>
+              <option>Bhutan</option>
+              <option>Srilanka</option>
+              <option>Nepal</option>
+            </select>
+          </label>
+
+          <label class="item item-input">
+            <button class="button button-block button-positive activated">Submit</button>
+          </label>           
+
+        </div>
+        <!-- statistics end -->
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+</ion-view>

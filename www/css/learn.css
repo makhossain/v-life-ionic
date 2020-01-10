@@ -1,0 +1,10 @@
+.learn {
+    color: #3ad9c5 !important;
+	border-color: #3ad9c5;
+	opacity: 1;
+	margin-top: -2px;
+}
+
+.learn .ion-android-bulb:before {
+	content: "";
+}

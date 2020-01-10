@@ -1,0 +1,42 @@
+<link href="css/contacts.css" rel="stylesheet">
+<ion-view title="Add Contacts" hide-Apps="true">
+
+<ion-header-bar align-title="center">
+	<div class="buttons">
+	    <button class="button button-icon ion-ios-arrow-back calm" ng-click="goBack()"></button>
+
+		<div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+		
+		<div class="buttons buttons-right header-item">
+			<span class="right-buttons">
+				<button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+			</span>
+		</div>
+	</div>
+</ion-header-bar>
+
+ <ion-content scroll="false" ng-controller="areacodeCtrl">
+	<div class="list add-contacts-main no-margin no-padding">
+	  <div ng-if="warning" class="light-bg text-center assertive">No result.<br/>Please try again.</div>
+	  <a class="item item-icon-right" ng-click="showareaCode()">{{choseArea.name}} (+{{choseArea.areacode}})<i class="icon ion-ios-arrow-right"></i></a>
+	  <div class="item item-input" style="padding-right:10px">
+		<input ng-model="data.phone" type="number" class="width-80" placeholder="Enter phone number">
+		<button class="button button-small button-clear" ng-click="data.phone=null">
+		<i class="icon ion-ios-close-empty"></i></button>
+		<button ng-disabled="!data.phone" class="button button-small padding-horizontal button-calm" ng-click="searchPerson(data.phone)">Search</button>
+	  </div>
+	</div>
+	<div class="list add-contacts-footer">
+		<a class="item item-avatar no-margin-bottom" ui-sref="App.nearbyContacts">
+			<img src="css/img/icon-rada-scan.png">
+			<span>Scan contacts Nearby</span>
+			<p>Discover contacts around you</p>
+		</a>
+		<a class="item item-avatar no-border no-margin-bottom" ng-click="inviteSms()">
+			<img src="css/img/icon-sms-border.png">
+			<span>Invite contacts via phonebook</span>
+			<p>Invite contact via SMS</p>
+		</a>
+	</div>
+ </ion-content>
+</ion-view>

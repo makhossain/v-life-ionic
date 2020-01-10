@@ -1,0 +1,48 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+    <pre class="hide">{{data}}</pre>
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">V-Life Affiliation</h3>
+    </div>
+
+    <div class="Post__details">
+      
+      <p>V-Life is a strategy that some direct sales companies use to encourage their existing distributors to recruit new distributors by paying the existing distributors a percentage of their recruits’ sales</p>
+
+
+      <!-- mlm table started -->
+      <div class="row row-header">
+        <div class="col">Subaffiliate</div>
+        <div class="col">Level</div>
+        <div class="col">Commission Rate</div>
+      </div>
+
+   <div class="row" ng-repeat="item in data.items">
+        <div class="col">{{item.username}}</div>
+        <div class="col">{{item.level}}</div>
+        <div class="col">{{item.amount_value}}</div>
+      </div>
+
+      <!-- mlm table end -->
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+</ion-view>

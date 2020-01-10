@@ -1,0 +1,73 @@
+<link href="css/learn.css" rel="stylesheet">
+<ion-view view-title="<img src='./img/logo-inline.png' />" hide-tabs="true">
+    <ion-header-bar align-title="center">
+        <div class="buttons">
+            <a class="button button-icon ion-ios-arrow-back calm" href="#/tab/learnlesson/{{lessonid}}/{{catid}}" style="margin-top: 8px;"></a>
+
+            <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+            
+            <div class="buttons buttons-right header-item">
+                <span class="right-buttons">
+                    <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+                </span>
+            </div>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="Learn has-header has-tabs">
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+
+        <span class="" ng-init="markasseen(postid)"></span>
+
+
+        <h5 class="Channel__name t-uc m-btm-20" style="display: none;">Brain Health (Course name)</h5>
+        <h5 class="Channel__name " ng-bind-html="data.post.name"></h5>
+        <!-- <h5 class="Post__name">  </h5> -->
+        <img class="u-WidthFull" fallback-src="./img/logo.png" src="{{data.post.img}}" alt="">
+        <!-- if video -->
+
+        <div ng-if="data.post.text"></div>
+
+        <div ng-if="data.post.video">
+            <div class="lesson-type">
+                <span class="button button-icon icon ion-ios-videocam-outline"> Video</span>      
+            </div>
+            <!-- <iframe width="100%" height="208" scrolling="no" frameborder="no" src="{{spvideo}}" allowfullscreen></iframe> -->
+            <!-- <iframe width="100%" scrolling="no" frameborder="no" src="{{video}}" allowfullscreen></iframe> -->
+            <!-- {{video}} -->
+            <div data-tap-disabled="true" >
+                <video width="100%" controls autoplay>
+                  <source src="{{video}}" type="video/mp4">
+                  <source src="{{video}}" type="video/ogg">
+                  Your browser does not support HTML5 video.
+                </video>
+            </div>            
+    
+        </div>
+
+        <!-- if audio -->
+        <div ng-if="data.post.audio">
+            <div class="lesson-type">    
+                <span class="button button-icon icon ion-headphone"> Audio</span>
+            </div>
+            <!-- <iframe width="100%" height="auto" scrolling="no" frameborder="no" src="{{audio}}" allowfullscreen></iframe> -->
+            <div data-tap-disabled="true" >
+                <audio controls autoplay src="{{audio}}">
+<!--                   <source src="{{audio}}" type="audio/ogg">
+                  <source src="{{audio}}" type="audio/mpeg">
+                  Your browser does not support the audio element. -->
+                </audio>            
+            </div>
+        </div>
+
+        <div class="Post__details">
+            <div ng-bind-html="data.post.content">
+            </div>
+        </div>
+
+
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-modal-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center">
+      <div class="buttons">
+         <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+         <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+            <button class="button button-icon icon ion-ios-close-empty" ng-click="closeNotifications()"></button>
+            </span>
+         </div>
+      </div>
+   </ion-header-bar>
+   <ion-content>
+      <ion-list class="list list-ios">
+         <ion-item class="item item-block item-ios" ng-repeat="(key,value) in data track by $index">
+            <ion-avatar item-left="" ng-if="!value.img" ng-init="author=getuser(value.user_id)">
+               <img ng-if="author.avatar.$value" ng-src="{{author.avatar.$value}}" fallback-src="img/logo.png">
+               <img ng-if="!author.avatar.$value" ng-src="css/img/avatar/{{value.authorname| firstChar}}.png" fallback-src="img/logo.png">
+            </ion-avatar>
+            <ion-avatar item-left="" ng-if="value.img">
+               <img fallback-src="img/logo.png" ng-src="{{value.img}}">
+            </ion-avatar>
+            <div class="item-inner">
+               <div class="input-wrapper">
+                  <ion-label class="label label-ios">
+                     <h2 ng-bind-html="value.notification"></h2>
+                  </ion-label>
+               </div>
+               <!-- end input-wrapper -->
+               <ion-note item-right="" class="note note-ios">
+                  {{value.time}}
+               </ion-note>
+            </div>
+            <!-- end item-inner -->
+            <div class="button-effect"></div>
+         </ion-item>
+         <!-- end ion-item -->
+      </ion-list>
+   </ion-content>
+</ion-modal-view>

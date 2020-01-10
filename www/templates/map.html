@@ -1,0 +1,16 @@
+<ion-modal-view class="modalMap" data-tap-disabled="true">
+   <ion-header-bar class="bar bar-header bar-calm">
+      <h1 class="title" style="text-align: left;">Add address</h1>
+      <button class="button button-outline button-positive button-small" ng-click="modal4.hide();" style="font-size: 13px; color: #fff;height: 10px;top: 12px;border-color: #fff;">Use address</button>
+   </ion-header-bar>
+   <ion-content scroll="false">
+      <div class="item item-input controls signup-map-input">
+         <i class="icon ion-ios-search placeholder-icon"></i>
+         <input id="autocomplete" placeholder="Enter your address" class="controls" type="text" data-tap-disabled="true" ng-change='disableTap()' ng-model="signupData.address">
+         <i class="icon ion-ios-close-empty placeholder-icon" ng-click="signupData.address = ''"  ng-show="signupData.address.length"></i>
+      </div>
+      <div>
+         <div id='map' data-tap-disabled="true" style="height: 100%;"></div>
+      </div>
+   </ion-content>
+</ion-modal-view>

@@ -1,0 +1,39 @@
+.title{padding:5px 0;}
+.title input{
+	height:100%;
+	background:none;
+	border-bottom:1px solid #fff;
+	font-size:110%;
+	line-height:30px
+}
+.title input::-webkit-input-placeholder{color:#ddebfa}
+.title input::-ms-input-placeholder{color:#ddebfa}
+.title input::-moz-placeholder{color:#ddebfa}
+.list-recent .button.button-icon{
+	position:absolute;
+    top:6px;
+    right:16px
+}
+.item.item-divider{
+	font-size:80%;
+	background:none
+}
+.item.item-avatar{
+	padding:6px 16px 6px 72px;
+	line-height:40px;
+	min-height:52px;
+}
+.item.item-avatar img{top:6px}
+.item.item-avatar.group img{border-radius:0}
+
+/*active icon css*/
+.chat-actv-icon {
+  color: #3ad9c5 !important;
+  border-color: #3ad9c5;
+  opacity: 1;
+  margin-top: -2px;
+}
+
+.chat-actv-icon .ion-ios-chatboxes-outline:before {
+  content: "";
+}

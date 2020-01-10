@@ -1,0 +1,161 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<ion-header-bar align-title="center">
+    <div class="buttons">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">My Affiliate Network</h3>
+    </div>
+
+    <div class="Post__details">
+
+		<!-- commission rate section started -->
+
+
+	
+
+
+		
+		<div class="m-btm-30">
+    		<h4>Your Commission Rates</h4>
+			
+			<div class="row row-header">
+	          <div class="col">Level</div>
+	          <div class="col">Commission Rate</div>
+	        </div>
+
+	        <div class="row" ng-repeat="(indexX,level) in data.levels" ng-if="data.levels">
+	          <div class="col"><strong>{{indexX}}</strong></div>
+	          <div class="col">{{level.string}}</div>
+	        </div>
+
+	       <div class="row"  ng-if="!data.levels">
+	          <div class="col">No Data</div>
+	        </div>
+
+		</div>
+
+		<!-- your earnings section started -->
+		<div class="m-btm-30">
+        	<h4>Your Earnings</h4>
+	        
+	        <div class="row row-header">
+	          <div class="col">&nbsp;</div>
+	          <div class="col">Paid</div>
+	          <div class="col">Unpaid</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>Referrals</strong></div>
+	     
+	          <div class="col">{{data.paidreferrals}}</div>
+	           <div class="col">{{data.unpaidreferrals}}</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>Earnings</strong></div>
+	          <div class="col" ng-bind-html="data.paidearning"></div>
+	          <div class="col" ng-bind-html="data.unpaidearning"></div>
+	        </div>
+		</div>
+		
+
+		<div class="m-btm-30" ng-if="data.stat">
+			<!-- Your Network Statistics section started -->
+			<h4>Your Network Statistics</h4>
+
+			<div class="row row-header">
+	          <div class="col">Level</div>
+	          <div class="col">Affiliates</div>
+	          <div class="col">Unpaid Referrals</div>
+	          <div class="col">Unpaid Earnings</div>
+	        </div>
+
+	        <div class="row">
+	          <div class="col"><strong>1</strong></div>
+	          <div class="col">1</div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>2</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>3</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>4</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>5</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	          <div class="col">0</div>
+	        </div>
+
+	        <!-- remaining half of statistics table -->
+	        <div class="row row-header">
+	          <div class="col">Level</div>
+	          <div class="col">Paid Referrals</div>
+	          <div class="col">paid Earnings</div>
+	        </div>
+
+	        <div class="row">
+	          <div class="col"><strong>1</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">$0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>2</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">$0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>3</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">$0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>4</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">$0</div>
+	        </div>
+	        <div class="row">
+	          <div class="col"><strong>5</strong></div>
+	          <div class="col">0</div>
+	          <div class="col">$0</div>
+	        </div>
+		</div>
+
+		<div class="m-btm-30">
+			<!-- google chart will comes here -->
+
+		</div>
+
+    </div>
+
+
+    </ion-content>
+</ion-view>

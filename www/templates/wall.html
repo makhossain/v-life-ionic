@@ -1,0 +1,78 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center" style="height: 102px;border: none !important; border-bottom-width: 0 !important; background-image:none;">
+      <div class="header-item header-left">
+         <button class="button button-icon ion-ios-arrow-back calm" ui-sref="App.home" style="height: 0;"></button>
+         <div class="wall-header__like">
+            <button class="button button-icon icon ion-ios-heart-outline" ng-click="follow()"></button>
+            <a href="#/likers/{{post.ID}}">{{totallike}}</a>
+         </div>
+         <div class="wall-header__comment">
+            <button class="button button-icon icon ion-ios-chatboxes-outline"></button><a href="#">{{totalcomment}}</a>
+         </div>
+      </div>
+      <div class="title title-center header-item" style="left: 57px; right: 57px;overflow: visible;">
+         <div class="WallPost">
+            <div class="WallPost-content">
+               <a href="#/userprofile/{{userid}}">
+                  <div class="WallPost__author" style="padding: 10px 0 0 0">
+                     <div class="WallPost__author-avatar" style="margin-bottom: -15px;">
+                        <img ng-if="author.avatar.$value" ng-src="{{author.avatar.$value}}">
+                        <img ng-if="!author.avatar.$value" ng-src="css/img/avatar/{{author.name.$value | firstChar}}.png">
+                     </div>
+                     <div class="WallPost__author-name" style="line-height: 1.5">{{author.name.$value}}</div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   </ion-header-bar>
+   <ion-content class="WallPost has-footer" style="top:102px">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <div class="WallPost-content">
+         <div class="WallPost__author">
+            <div class="WallPost__author-location" ng-show="data.country!='undefined'">{{data.country}}</div>
+            <div class="WallPost__author-time">{{data.time}}</div>
+         </div>
+         <div class="WallPost__cover">
+            <img src="{{data.bgpic}}" alt="">
+         </div>
+         <div class="WallPost__cata">
+            <img src="{{data.icon}}" alt="">
+            <p ng-bind-html="post.post_title"></p>
+         </div>
+      </div>
+      <div class="WallPost-comment">
+         <div class="WallPost-commentWrapper">
+            <p class="WallPost__comment-time m-top-10" ng-if="comments.length=='0'">No Comment</p>
+            <div class="WallPost__comment" ng-repeat="comment in comments" ng-init="author=getuser(comment.user_id)">
+               <div class="WallPost__comment-avatar">
+                  <img ng-if="author.avatar.$value" ng-src="{{author.avatar.$value}}">
+                  <img ng-if="!author.avatar.$value && author.name.$value " ng-src="css/img/avatar/{{author.name.$value | firstChar}}.png">
+                  <img ng-if="!author.avatar.$value && !author.name.$value " ng-src="css/img/avatar/{{ '
+                  ' | firstChar}}.png">
+               </div>
+               <div class="WallPost__commentClear">
+                  <div class="WallPost__comment-name" ng-if="!author.name.$value ">Loading</div>
+                  <a href="#/userprofile/{{comment.user_id}}">
+                     <div class="WallPost__comment-name" ng-if="author.name.$value ">{{author.name.$value}}</div>
+                  </a>
+                  <div class="WallPost__comment-time" >{{comment.timeago}}</div>
+                  <div class="WallPost__comment-message" ng-bind-html="comment.comment_content"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </ion-content>
+   <div class="WallPost__typeMessage">
+      <form name="comment_form" class="" novalidate>
+         <div class="item-input-inset">
+            <label class="item-input-wrapper">
+            <input type="text" placeholder="Type a message..." ng-model="new_comment" required>
+            </label>
+            <button class="button button-clear button-calm" type="submit" ng-click="addComment()" ng-disabled="comment_form.$invalid">
+            Post
+            </button>
+         </div>
+      </form>
+   </div>
+</ion-view>

@@ -1,0 +1,104 @@
+/* ICONS */
+
+.sc-icon {
+	position: relative;
+	font-weight: normal;
+	font-family: 'scalia-user-icons';
+	font-size: 25px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	line-height: 46px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+}
+.sc-icon-centered {
+	display: block;
+	margin: 0 auto;
+}
+.sc-icon.sc-simple-icon {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+}
+.sc-icon-size-medium {
+	font-size: 37px;
+	width: 84px;
+	height: 84px;
+	line-height: 80px;
+}
+.sc-icon-size-medium.sc-simple-icon {
+	width: 37px;
+	height: 37px;
+	line-height: 37px;
+}
+.sc-icon-size-big {
+	font-size: 64px;
+	width: 128px;
+	height: 128px;
+	line-height: 124px;
+}
+.sc-icon-size-big.sc-simple-icon {
+	width: 64px;
+	height: 64px;
+	line-height: 64px;
+}
+.sc-icon .sc-icon-half-1,
+.sc-icon .sc-icon-half-2 {
+	float: left;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	text-align: center;
+}
+.sc-icon .sc-icon-half-1 {
+	margin-left: -50%;
+}
+.sc-icon .sc-icon-half-2 {
+	margin-right: -50%;
+}
+.sc-icon.angle-45deg-l .sc-icon-half-1,
+.sc-icon.angle-45deg-l .sc-icon-half-2 {
+	transform: skew(45deg, 0);
+	-o-transform: skew(45deg, 0);
+	-ms-transform: skew(45deg, 0);
+	-moz-transform: skew(45deg, 0);
+	-webkit-transform: skew(45deg, 0);
+}
+.sc-icon.angle-45deg-r .sc-icon-half-1,
+.sc-icon.angle-45deg-r .sc-icon-half-2 {
+	transform: skew(-45deg, 0);
+	-o-transform: skew(-45deg, 0);
+	-ms-transform: skew(-45deg, 0);
+	-moz-transform: skew(-45deg, 0);
+	-webkit-transform: skew(-45deg, 0);
+}
+.sc-icon .back-angle {
+	display: block;
+	position: relative;
+	width: 200%;
+	height: 100%;
+}
+.sc-icon .sc-icon-half-2 .back-angle {
+	left: -100%;
+}
+.sc-icon.angle-45deg-l .back-angle {
+	transform: skew(-45deg, 0);
+	-o-transform: skew(-45deg, 0);
+	-ms-transform: skew(-45deg, 0);
+	-moz-transform: skew(-45deg, 0);
+	-webkit-transform: skew(-45deg, 0);
+}
+.sc-icon.angle-45deg-r .back-angle {
+	transform: skew(45deg, 0);
+	-o-transform: skew(45deg, 0);
+	-ms-transform: skew(45deg, 0);
+	-moz-transform: skew(45deg, 0);
+	-webkit-transform: skew(45deg, 0);
+}

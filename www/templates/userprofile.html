@@ -1,0 +1,97 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center" style="border: none;">
+      <div class="buttons">
+         <a class="button button-icon ion-ios-arrow-back calm" href="#/home/" style="height: 0;"></a>
+         <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+      </div>
+   </ion-header-bar>
+   <ion-content>
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <div class="Profile" style="background-image: url(./img/c0.png); min-height: auto;">
+         <div class="Profile__content">
+            <div class="Profile__content-img">                    
+               <img class="User__avatar-image" ng-if="profile.avatar" ng-src="{{profile.avatar}}">
+               <img class="User__avatar-image" ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png">
+            </div>
+            <div class="Profile__content-actions">
+               <h5 class="White">{{data.authorname}}</h5>
+               <p class="person__country text-white no-margin" ng-show="data.country!='undefined'">{{data.country}}</p>
+               <div ng-if="currentuserid==currentprofileid && data.rank!=null">
+                  <p class="person__country text-white no-margin">Affiliate {{data.rank.name.label}}</p>
+                  <p class="person__country text-white no-margin">Affiliate since {{data.user_registered}}</p>
+               </div>
+               <div ng-if="currentuserid!=currentprofileid">
+                  <button ng-show="add" class="button button-small button-outline button-light icon-left ion-ios-chatbubble-outline m-t-10 font-100 text-white" ng-click="addcontact()">Add to contacts</button>
+                  <button ng-show="frnd" class="button button-small button-outline button-light icon-left ion-ios-chatbubble-outline m-t-10 font-100 text-white" ui-sref="detail({id:profile.$id})">Send Message</button>
+                  <button  ng-if="sent" class="button button-small button-outline button-light icon-left ion-ios-chatbubble-outline m-t-10 font-100 text-white">Request Pending</button>
+                  <button ng-click="accept(profile.$id)" ng-if="received" class="button button-small button-outline button-light icon-left ion-ios-chatbubble-outline m-t-10 font-100 text-white" >Accept request</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="Todays-top">
+         <div class="Card">
+            <div class="Card__heading m-top-30">
+               <h4 class="Card__heading-text u-TextUpper">NUTRITION ACTIONS</h4>
+            </div>
+            <div class="Card__body User__profile-container">
+               <div ng-if="!data.option">No Action</div>
+               <div ng-repeat="post in data.option" href="#/tab/singleposts/{{post.id}}">
+                  <div class="row">
+                     <div class="col col-33" ng-repeat="(key,value) in post.post track by $index">
+                        <div class="">
+                           <span class="User__action-count">{{value.count}}</span>
+                           <img class="u-WidthFull u-Block" src="{{value.icon}}" alt="" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="Recognition-wall">
+         <div class="Card">
+            <div class="Card__heading">
+               <h4 class="Card__heading-text u-TextUpper">ACTIVITIES</h4>
+            </div>
+            <div ng-if="!wallpost">No ACTIVITIES</div>
+            <div class="Card__body">
+               <div class="Wall" ng-repeat="(key,value) in wallpost track by $index" ng-init="author=getuser(value.author)">
+                  <a href="#/home/wall/{{value.postid}}">
+                     <img ng-if="value.bgpic" ng-src="{{value.bgpic}}">
+                     <img ng-if="!value.bgpic" ng-src="./img/b0.jpg">
+                     <div class="Wall__content">
+                        <div class="Wall__content-inner">
+                           <div class="Wall__content-thumb">
+                              <img class="User__avatar-image" ng-if="profile.avatar" ng-src="{{profile.avatar}}">
+                              <img class="User__avatar-image" ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png">
+                           </div>
+                           <div class="Wall__content-meta">
+                              <p class="Wall__content-user">{{profile.name}}</p>
+                              <p class="Wall__content-time">{{value.time}}</p>
+                           </div>
+                           <div class="Wall__content-cata">
+                              <img  ng-if="value.icon" src="{{value.icon}}" alt="">
+                              <p ng-bind-html="value.title"></p>
+                           </div>
+                           <div class="Wall__content-footer">
+                              <span style="margin-right: 30px;">
+                              <span class="button-icon icon ion-ios-heart-outline"></span>
+                              <span class="subdued" ng-if="value.like">{{value.like}}</span>
+                              <span class="subdued" ng-if="!value.like">0</span>
+                              </span>
+                              <span class="button-icon icon ion-ios-chatboxes-outline"></span>
+                              <span class="subdued">{{value.comment.total_comments}}</span>
+                           </div>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <!-- .Card -->
+      </div>
+      <!-- .Recognition-wall -->
+      <ion-infinite-scroll  on-infinite="loadMoreData()" distance="5%" ng-if="moreDataCanBeLoaded()"></ion-infinite-scroll>
+   </ion-content>
+</ion-view>

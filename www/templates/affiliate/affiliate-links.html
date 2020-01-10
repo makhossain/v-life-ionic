@@ -1,0 +1,93 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center">
+      <div class="buttons">
+         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+         <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+         <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+            <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+         </div>
+      </div>
+   </ion-header-bar>
+   <ion-content class="Affiliate Affiliate-network Post">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <!-- <pre class="hide">{{data}}</pre> -->
+      <div class="Post__header" style="background-color: #3ad9c5;">
+         <h3 class="Post__header-title">Affiliate Links</h3>
+      </div>
+      <div class="Post__details">
+         <!-- statistics started -->
+         <div class="card">
+            <div class="item item-text-wrap">
+               <h3>Your Affiliate Name is:</h3>
+               <strong>{{data.print_username}}</strong>
+            </div>
+         </div>
+         <!-- statistics end -->
+         <!-- statistics started -->
+         <div class="card">
+            <div class="item item-text-wrap">
+               <h3>Your referral URL is:</h3>
+               <strong>{{data.home_url}}</strong>
+            </div>
+         </div>
+         <!-- statistics end -->				
+         <!-- statistics started -->
+         <div class="card" ng-if="data.home_url_slug">
+            <div class="item item-text-wrap">
+               <h3>Your Custom Slug:</h3>
+               <strong>{{data.home_url_slug}}</strong>
+            </div>
+         </div>
+         <!-- statistics end -->
+         <div class="list">
+            <h4>Link Generator</h4>
+            <p>If you'd prefer to append your own affiliate links with an alternate incoming URL, use the following structure. To build your link, take the following URL and append it with the Alternate Incoming URL you want to use.</p>
+         </div>
+         <!-- list -->
+         <div class="card" ng-if="camplink">
+            <div class="item item-text-wrap">
+               <h3>Generated Link:</h3>
+               <strong>{{camplink.url}}</strong>
+            </div>
+         </div>
+         <!-- generator form start -->
+         <div class="list">
+            <label class="item item-input item-select">
+               <div class="input-label">
+                  Campaign
+               </div>
+               <select ng-model="FilterData.camp">
+                  <option ng-repeat="(key,value) in data.campaigns" ng-if="value!='...'">{{value}}</option>
+               </select>
+            </label>
+            <label class="item item-input item-select">
+               <div class="input-label">
+                  Friendly Links:
+               </div>
+               <select ng-model="FilterData.friendly" ng-init="FilterData.friendly='1'">
+                  <option value="1">On</option>
+                  <option value="0">Off</option>
+               </select>
+            </label>
+            <label class="item item-input item-select">
+               <div class="input-label">
+                  Referrence Type:
+               </div>
+               <select ng-model="FilterData.reference" ng-init="FilterData.reference='0'">
+                  <option value="0">Username</option>
+                  <option value="1">Custom Affiliate Slug</option>
+               </select>
+            </label>
+            <label class="item item-input">
+               <input type="text" placeholder="Specific URL:" ng-model="FilterData.url">
+            </label>
+            <label>
+            <button class="button button-block button-positive activated" ng-click="add()">Generate Link</button>
+            </label>	  
+         </div>
+      </div>
+      <!-- end Post__details -->
+   </ion-content>
+</ion-view>

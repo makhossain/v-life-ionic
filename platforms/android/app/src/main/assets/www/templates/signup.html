@@ -1,0 +1,49 @@
+<ion-modal-view class="Signup">
+   <ion-header-bar class="Signup__bar bar bar-header">
+      <!-- <h1 class="title">Sign Up</h1> -->
+      <div class="buttons">
+         <button class="button back-button buttons button-clear header-item" ng-click="closeSignup()"><i class="icon ion-ios-arrow-back"></i></button>
+      </div>
+   </ion-header-bar>
+   <ion-content class="Signup__content">
+      <div class="Signup__content-logo">
+         <img src="./img/logo-signup_login.png" alt="" />
+      </div>
+      <div class="Signup__content-form">
+         <div class="padding text-center login-notifi" ng-show="signupData.notification">
+            <span>{{signupData.notification}}</span>
+         </div>
+         <div class="padding has-error">
+            <p ng-show="myForm.username.$invalid && !myForm.username.$pristine && myForm.username.$touched">* Please insert a valid email address</p>
+            <p ng-show="myForm.username.$error.minlength && myForm.username.$touched">* Email address must be longer than 5 characters</p>
+            <p ng-show="myForm.password.$error.minlength && myForm.password.$touched">* Password must be longer than 6 characters</p>
+            <p ng-show="myForm.password.$viewValue !== myForm.confirm.$viewValue && myForm.confirm.$touched">* Confirmation password do not match</p>
+         </div>
+         <form name="myForm" novalidate ng-submit="doSignup()">
+            <div class="list">
+               <label class="item item-input">
+               <i class="icon ion-ios-email-outline placeholder-icon"></i>
+               <input type="email" name="username" ng-model="signupData.username" placeholder="Email Address" ng-minlength="5" required>
+               </label>
+               <label class="item item-input"> 
+               <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+               <input type="password" name="password" ng-model="signupData.password"  placeholder="Password" ng-minlength="6" required>
+               </label>
+               <label class="item item-input">
+               <i class=" placeholder-icon"></i>
+               <input type="password" placeholder="Confirm Password" ng-model="signupData.confirm" placeholder="Confirm Password" name="confirm">
+               </label>
+            </div>
+            <div style="padding: 0">
+               <button type="Submit" class="button button-block button-calm" ng-disabled="myForm.$invalid || myForm.password.$viewValue !== myForm.confirm.$viewValue" >Submit</button>
+               <!-- <button type="Submit" class="button button-block button-calm">Submit</button>                -->
+            </div>
+         </form>
+      </div>
+   </ion-content>
+   <div class="Signup__terms">
+      By signing up, you agree to the
+      <a href="">Terms</a>,
+      <a href="">Conditions</a> and <a href="">Privacy Policy</a>
+   </div>
+</ion-modal-view>

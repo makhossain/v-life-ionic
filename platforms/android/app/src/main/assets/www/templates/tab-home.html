@@ -1,0 +1,105 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <!--padding  -->
+   <ion-content class="">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <div class="Profile" style="background-image: url(./img/c0.png);">
+         <div class="Profile__content">
+            <div class="Profile__content-img">  
+               <a  href="#/userprofile/{{currentuserid}}">             
+               <img class="User__avatar-image" ng-if="profile.avatar" ng-src="{{profile.avatar}}">
+               <img class="User__avatar-image" ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png">
+               </a>      
+            </div>
+            <div class="Profile__content-actions">
+               <h5 class="u-TextUpper White">Actions</h5>
+               <div class="Icon-holder">
+                  <a href="" ng-click="natrion()">
+                     <div class="Icon">
+                        <img src="./img/icon-leaf.png" alt="" />
+                     </div>
+                     <p class="u-MarginB0">Nutrition</p>
+                  </a>
+               </div>
+               <div class="Icon-holder">
+                  <a href="#/userprofile/{{currentuserid}}">
+                     <div class="Icon">
+                        <img src="./img/icon-star-crest.png" alt="" />
+                     </div>
+                     <p class="u-MarginB0">Achievements</p>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="Todays-top">
+         <div class="Card">
+            <div class="Card__heading">
+               <h4 class="Card__heading-text u-TextUpper">Top 30</h4>
+            </div>
+            <div class="Card__body">
+               <div class="Thumb-container">
+                  <div class="Thumb-holder" ng-repeat="(key,value) in user track by $index" ng-init="author=getuser(value.user_id)">
+                     <a href="#/userprofile/{{value.user_id}}">
+                        <div class="Thumb">
+                           <img ng-if="author.avatar.$value" ng-src="{{author.avatar.$value}}">
+                           <img ng-if="!author.avatar.$value" ng-src="css/img/avatar/{{ value.name | firstChar }}.png">
+                        </div>
+                        <p>{{value.name}}</p>
+                     </a>
+                  </div>
+                  <a ui-sref="App.userlist">
+                     <div class="Thumb-holder">
+                        <div class="Thumb Thumb--more">
+                           <img src="./img/search-more.png" alt="...">
+                        </div>
+                        <p>See More</p>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="Recognition-wall">
+         <div class="Card">
+            <div class="Card__heading">
+               <h4 class="Card__heading-text u-TextUpper">Recognition Wall</h4>
+            </div>
+            <div class="Card__body">
+               <div class="Wall" ng-repeat="(key,value) in wallpost track by $index" ng-init="author=getuser(value.author)">
+                  <a href="#/home/wall/{{value.postid}}">
+                     <img ng-if="value.bgpic" ng-src="{{value.bgpic}}">
+                     <img ng-if="!value.bgpic" ng-src="./img/b0.jpg">
+                     <div class="Wall__content">
+                        <div class="Wall__content-inner">
+                           <div class="Wall__content-thumb">
+                              <img ng-if="author" ng-src="{{author.avatar.$value}}">       
+                              <img ng-if="!author.avatar.$value" ng-src="css/img/avatar/{{value.authorname | firstChar}}.png" style="margin-top: -20px;">
+                           </div>
+                           <div class="Wall__content-meta">
+                              <p class="Wall__content-user">{{value.authorname}}</p>
+                              <p class="Wall__content-time">{{value.time}}</p>
+                           </div>
+                           <div class="Wall__content-cata">
+                              <img  ng-if="value.icon" src="{{value.icon}}" alt="">
+                              <p ng-bind-html="value.title"></p>
+                           </div>
+                           <div class="Wall__content-footer">
+                              <span style="margin-right: 30px;">
+                              <span class="button-icon icon ion-ios-heart-outline"></span>
+                              <span class="subdued" ng-if="value.like">{{value.like}}</span>
+                              <span class="subdued" ng-if="!value.like">0</span>
+                              </span>
+                              <span class="button-icon icon ion-ios-chatboxes-outline"></span>
+                              <span class="subdued">{{value.comment.total_comments}}</span>
+                           </div>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <ion-infinite-scroll 
+         on-infinite="loadMoreData()" distance="5%" ng-if="moreDataCanBeLoaded()"></ion-infinite-scroll>
+   </ion-content>
+</ion-view>

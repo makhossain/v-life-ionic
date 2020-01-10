@@ -1,0 +1,29 @@
+<link href="css/contacts.css" rel="stylesheet">
+<ion-view title="Recommended Contacts" hide-tabs="true">
+
+<ion-header-bar align-title="center">
+	<div class="buttons">
+	    <button class="button button-icon ion-ios-arrow-back calm" ng-click="goBack()"></button>
+
+		<div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+		
+		<div class="buttons buttons-right header-item">
+			<span class="right-buttons">
+				<button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+			</span>
+		</div>
+	</div>
+</ion-header-bar>
+
+ <ion-content>
+	<div class="list contacts-recommended">
+		<a class="item item-avatar" ng-repeat="contact in contacts">
+		  <img ng-if="contact.avatar.$value" ng-src="{{contact.avatar.$value}}">
+		  <img ng-if="!contact.avatar.$value" ng-src="css/img/avatar/{{contact.name.$value | firstChar}}.png">
+		  <h2>{{contact.name.$value}}</h2>
+		  <p>+{{contact.phone.$value}}</p>
+		  <button class="button button-outline button-calm" ng-click="accept(contact.$id)">Accept</button>
+		</a>
+	</div>
+ </ion-content>
+</ion-view>

@@ -1,0 +1,8 @@
+.health {
+    color: #3ad9c5 !important;
+}
+
+.platform-ios .games-iframe iframe, .platform-ios .games-iframe iframe div, .platform-ios .games-iframe iframe canvas {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}

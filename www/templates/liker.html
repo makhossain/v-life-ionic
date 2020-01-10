@@ -1,0 +1,52 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+  <ion-header-bar align-title="center" style="border: none;">
+    <div class="buttons">
+
+        <a class="button button-icon ion-ios-arrow-back calm" href="#/home/wall/{{postId}}" style="height: 0;"></a>
+
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+    </div>
+  </ion-header-bar>
+
+<ion-content class="Persons">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+    <div class="Persons__title">
+      <h2 class="Card__heading Card__heading-text u-TextUpper">LIKERS</h2>
+    </div>
+
+    <div class="Persons__content">
+      <ol class="Persons__list">
+
+        <li class="Single__person" ng-repeat="(key,value) in data track by $index" ng-init="author=getuser(value.user_id)">
+        
+          <div class="person__counter">
+            <p>{{$index+1}}</p>
+          </div>
+
+          <a href="#/userprofile/{{value.user_id}}">
+            <figure class="person__thumb">
+             <img ng-if="author.avatar.$value" ng-src="{{author.avatar.$value}}">
+             <img ng-if="!author.avatar.$value" ng-src="css/img/avatar/{{value.name | firstChar}}.png">
+            
+            </figure>
+          </a>
+
+          <div class="person__meta">
+        
+            <a  href="#/userprofile/{{value.user_id}}">{{value.name}}</a>
+             <p class="person__country" ng-show="value.country!='undefined'">{{value.country}}</p>
+           
+          </div>
+        </li>
+
+
+      </ol>
+    </div>
+
+    </ion-content>
+</ion-view>

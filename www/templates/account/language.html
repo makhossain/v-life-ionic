@@ -1,0 +1,63 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<ion-header-bar align-title="center">
+    <div class="buttons">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-creatives Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Profile</h3>
+    </div>
+
+
+      <div class="Post__details">
+        <div class="m-btm-30">
+            <p><strong>First name:</strong> {{profiledata.firstname}}</p>
+            <p><strong>Last name:</strong> {{profiledata.lastname}}</p>
+             <p><strong>Nick name:</strong>  {{profile.name}}</p>
+            
+            <p><strong>Email:</strong> {{profiledata.email}}</p>
+        </div>
+
+        <h4>Billing Address</h4>
+        <address>
+          {{data.billing.first_name}} {{data.billing.last_name}}<br>
+          {{data.billing.address_1}}<br>
+         {{data.billing.address_2}}<br>
+         {{data.billing.city}}<br>
+         {{data.billing.state}}<br>
+         {{data.billing.postcode}}<br>
+         {{data.billing.country}}<br>  
+        </address>
+        <button class="button button-calm button-small" ui-sref="App.accountadrs">Edit</button>
+
+        <h4>Shipping Address</h4>
+        <address>
+          {{data.shipping.first_name}} {{data.shipping.last_name}}<br>
+          {{data.shipping.address_1}}<br>
+         {{data.shipping.address_2}}<br>
+         {{data.shipping.city}}<br>
+         {{data.shipping.state}}<br>
+         {{data.shipping.postcode}}<br>
+         {{data.shipping.country}}<br>  
+        </address>
+        <button class="button button-calm button-small" ui-sref="App.accountadrs">Edit</button>
+
+      </div>
+
+
+    </ion-content>
+</ion-view>

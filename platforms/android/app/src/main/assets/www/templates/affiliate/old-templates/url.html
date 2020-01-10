@@ -1,0 +1,52 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<ion-header-bar align-title="center">
+    <div class="buttons">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-url Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Referral URL Generator</h3>
+    </div>
+
+    <div class="Post__details">
+
+        <p>Your custom slug is: <strong>{{data.slug}}</strong></p>
+
+        <p>Your referral URL is: <strong>{{data.url}}</strong></p>
+        
+        <div class="m-btm-20"></div>
+        
+        <h5>Enter any URL from this website in the form below to generate a referral link!</h5>
+    
+        <label class="item item-input">
+            <i class="icon ion-link placeholder-icon"></i>
+            <input type="text" placeholder="Page URL" ng-model="count">
+        </label>
+
+        <label class="item item-input">
+            <i class="icon ion-ios-briefcase placeholder-icon"></i>
+            <input type="text" placeholder="Campaign Name (optional)" ng-model="count1">
+        </label>
+        
+<button class="button button-calm button-block button-outline activated" ng-click="count = data.url +'?campaign=' +count1" ng-init="count=data.url">Generate URL</button>
+
+    </div>
+
+
+
+    </ion-content>
+</ion-view>

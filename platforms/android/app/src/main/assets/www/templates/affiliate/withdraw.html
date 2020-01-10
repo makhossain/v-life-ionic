@@ -1,0 +1,81 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Withdraw</h3>
+    </div>
+
+    <div class="Post__details">
+
+        <!-- statistics started -->
+        <div class="card">
+          <div class="item item-text-wrap bg-aflt-green">
+            <h2>{{data.available_wallet}} {{data.currency}}</h2>
+                Available amount in wallet
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-text-wrap bg-aflt-light-red">
+            <h2>{{data.withdraw_total}} {{data.stats.currency}}</h2>
+            Withdraw Amount
+            <p class="text-white">Pending: {{data.total_pending}} </p>
+            <p class="text-white">Paid: {{data.total_paid}}</p>
+          </div>
+        </div>
+        <!-- statistics end -->
+        
+
+      <!-- shorting form started -->
+      <div class="list">
+          <div class="row m-btm-20">
+            <div class="col">
+              <label class="item item-input">
+                <input type="text" ng-model="FilterData.withdraw_amount" ng-change="checkMinValue($event)" placeholder="100">
+              </label>
+              <p style="margin-top:5px;font-size: 12px;font-style: italic;">Minimum withdraw amount <span style="font-weight: 600;">$100.</span> Transaction fee <span style="font-weight: 600;">5%</span></p>
+            </div>
+          </div>
+        <button class="button button-block button-positive activated" ng-click="add(data.available_wallet)" ng-if="showSubmit" ng-model="add_amount">Add</button>
+      </div> <!-- list -->
+      <!-- shorting form end -->
+
+      <!-- refferal table started -->
+      <div class="row row-header">
+        <div class="col">Sl No.</div>
+        <div class="col">Amount</div>
+        <div class="col">Rqst Date</div>
+        <div class="col">Payment Date</div>
+        <div class="col">Status</div>
+      </div>
+
+      <div class="row" ng-repeat="item in data.listing_items">
+        <div class="col"></div>
+        <div class="col">{{item.withdraw_amount}} {{data.currency}}</div>
+        <div class="col">{{item.request_date}}</div> 
+        <div class="col">{{item.date}}</div> 
+        <div class="col">{{item.withdraw_status}}</div> 
+      </div>
+
+      <!-- refferal table end -->
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+</ion-view>

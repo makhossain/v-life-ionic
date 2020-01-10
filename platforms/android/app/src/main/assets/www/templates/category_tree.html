@@ -1,0 +1,69 @@
+<ion-list class="SideMenu__list category-tree">
+    <!-- <ion-item class="item-divider" ng-if="title">
+        {{title}}
+    </ion-item> -->
+
+
+    <div ng-repeat="cat in categories">
+        <!-- Level 1 -->
+<div ng-if="cat.id=='42069' && broadcast" >
+
+        <ion-item class="item-cat item-icon-left" ng-click="toggleCat(cat)" ng-class="isActive(cat)" ng-if="cat.toogle" menu-toggle="left">
+            <i class="icon"  ng-class="cat.iconClass" ></i>
+            {{ cat.name | translate }}
+            <!-- <span class="item-note">
+                <i class="icon" ng-if="cat.items.length" ng-class="isCatShown(cat) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+            </span> -->
+        </ion-item>
+
+        <ion-item class="item-cat item-icon-left" ng-click="toggleCat(cat)" ng-class="isActive(cat)" ng-if="!cat.toogle" ng-if="cat.toogle" >
+            <i class="icon" ng-class="cat.iconClass" ></i>
+            {{cat.name | translate}}
+            <!-- <span class="item-note">
+                <i class="icon" ng-if="cat.items.length" ng-class="isCatShown(cat) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+            </span> -->
+        </ion-item>
+
+</div>
+
+<div ng-if="cat.id!='42069'">
+
+        <ion-item class="item-cat item-icon-left" ng-click="toggleCat(cat)" ng-class="isActive(cat)" ng-if="cat.toogle" menu-toggle="left">
+            <i class="icon"  ng-class="cat.iconClass" ></i>
+            {{ cat.name | translate }}
+            <!-- <span class="item-note">
+                <i class="icon" ng-if="cat.items.length" ng-class="isCatShown(cat) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+            </span> -->
+        </ion-item>
+
+        <ion-item class="item-cat item-icon-left" ng-click="toggleCat(cat)" ng-class="isActive(cat)" ng-if="!cat.toogle" ng-if="cat.toogle" >
+            <i class="icon"  ng-class="cat.iconClass" ></i>
+            {{cat.name | translate}}
+            <!-- <span class="item-note">
+                <i class="icon" ng-if="cat.items.length" ng-class="isCatShown(cat) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+            </span> -->
+        </ion-item>
+</div>
+
+        <!-- Level 2 -->
+        <div ng-repeat="subCat in cat.items">
+            <div class="Submenu">
+                <ion-item class="Submenu__list item-sub item-icon-left" ng-click="toggleSubCat(subCat)" ng-show="isCatShown(cat)" ng-class="isActive(subCat)">
+                    <!-- <i class="icon" ng-class="subCat.iconClass"></i> -->
+               <p ng-bind-html="subCat.name | translate"></p> 
+               <i class="icon icon-inline" ng-if="subCat.items"  ng-class="isSubCatShown(subCat) ? 'ion-ios-minus-empty' : 'ion-ios-plus-empty'"></i>
+                </ion-item>
+
+                <!-- Level 3 -->
+                <ion-item class="Submenu__list item-item item-icon-left" ng-repeat="item in subCat.items" ng-show="isSubCatShown(subCat)" ng-click="checkLink(item)" ng-class="isActive(item)" menu-toggle="left">
+                    <i class="icon"></i>
+
+
+                   <p ng-bind-html="item.name | translate"></p>
+                </ion-item>
+            </div>
+        </div>
+    </div>
+
+<ion-item class="item-icon-left" menu-close ng-click="showLogOutMenu()"><i class="icon ion-log-out"></i> {{'SidebarSignOut' | translate }}</ion-item>
+</ion-list>

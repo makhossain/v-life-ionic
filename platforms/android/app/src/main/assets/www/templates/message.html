@@ -1,0 +1,28 @@
+<ion-view view-title="Messages">
+   <ion-nav-title>
+      <img alt="Company Logo1" class="logoimg" src="img/logo.png">
+   </ion-nav-title>
+   <ion-content>
+      <ion-refresher
+         pulling-text="Pull to refresh..."
+         on-refresh="doRefresh()">
+      </ion-refresher>
+      <div class="list list-inset">
+         <label class="item item-input" style="margin-top:20px;">
+         <input type="text" placeholder="Write Message" ng-model="joke">
+         </label>
+         <button class="button button-block button-positive" ng-click="addJoke(joke)">
+         Send Message
+         </button>
+      </div>
+      <ion-list can-swipe="listCanSwipe">
+         <ion-item ng-repeat="joke in jokes" class="item item-text-wrap">
+            <!-- jokes.updateJoke(joke) -->
+            <p>{{joke.submitted_by}}</p>
+            <h2>{{joke.joke}}</h2>
+         </ion-item>
+      </ion-list>
+      <ion-infinite-scroll  ng-if="!noMoreItemsAvailable"
+         on-infinite="loadMore(5)" distance="10%"></ion-infinite-scroll>
+   </ion-content>
+</ion-view>

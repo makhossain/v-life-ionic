@@ -1,0 +1,45 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center">
+      <div class="buttons">
+         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+         <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+         <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+            <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+         </div>
+      </div>
+   </ion-header-bar>
+   <ion-content class="Affiliate Affiliate-network Post">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <pre class="hide">{{data.campaigns}}</pre>
+      <div class="Post__header" style="background-color: #3ad9c5;">
+         <h3 class="Post__header-title">Campaigns</h3>
+      </div>
+      <div class="Post__details">
+         <!-- List Of Campaigns -->
+         <div class="list">
+            <div class="item item-button-right" ng-repeat="item in data.campaigns track by $index" >
+               {{item}}
+               <button class="button button-positive" ng-click="remove(item)">
+               <i class="icon ion-android-delete" ></i>
+               </button>
+            </div>
+         </div>
+         <!-- End List Of Campaigns -->
+         <h4>Add New Campaign</h4>
+         <!-- generator form start -->
+         <div class="list">
+            <label class="item item-input">
+            <span class="input-label">Name:</span>
+            <input type="text" ng-model="FilterData.name">
+            </label>
+            <label>
+            <button class="button button-block button-positive activated" ng-click="add()">Save</button>
+            </label>
+         </div>
+         <!-- generator form end-->
+      </div>
+      <!-- end Post__details -->
+   </ion-content>
+</ion-view>

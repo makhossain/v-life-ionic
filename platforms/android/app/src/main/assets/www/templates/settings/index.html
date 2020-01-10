@@ -1,0 +1,35 @@
+<link href="css/settings.css" rel="stylesheet">
+<ion-view title="Settings">
+<ion-header-bar align-title="center">
+	<div class="buttons">
+	    <div class="buttons buttons-left header-item">
+			<span class="left-buttons">
+				<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+			</span>
+		</div>
+
+		<div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+		
+		<div class="buttons buttons-right header-item">
+			<span class="right-buttons">
+				<button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+			</span>
+		</div>
+	</div>
+</ion-header-bar>
+ <ion-content>
+	<div class="padding-bottom">
+	<div class="list"><div class="item item-avatar" ui-sref="profiles">
+		<img ng-if="profile.avatar" ng-src="{{profile.avatar}}">
+		<img ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png">
+		<div>{{profile.name}}</div>
+		<small class="calm">My Profile</small>
+	</div></div>
+	</div>
+	<div class="list settings-main padding-horizontal">
+	  <a class="item item-icon-left no-border border-bottom" ui-sref="settingsMessages" ng-hide="false"><i class="icon ion-android-notifications-none"></i>Messages and notification</a>
+	  <a class="item item-icon-left no-border border-bottom" ui-sref="settingsContacts" ng-hide="false"><i class="icon ion-android-contacts"></i>Contacts</a>
+	  <a class="item item-icon-left no-border border-bottom" ui-sref="settingsAccount"><i class="icon ion-ios-contact-outline"></i>My account</a>
+	</div>
+ </ion-content>
+</ion-view>

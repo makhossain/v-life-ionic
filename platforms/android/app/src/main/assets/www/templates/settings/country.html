@@ -1,0 +1,32 @@
+﻿<link href="css/settings.css" rel="stylesheet">
+<ion-modal-view class="modal-change-name modal-full">
+<ion-header-bar align-title="left">
+  <div class="buttons">
+    <button class="button button-icon ion-ios-arrow-back calm" ng-click="closeChangeCountry"></button>
+  </div>
+  <h1 class="title">Select your Country</h1>
+</ion-header-bar>
+<ion-content scroll="false">
+	<div class="list">
+
+	<label class = "item item-input item-select">
+   <div class = "input-label">
+      Select country
+   </div>
+<select ng-model="profile.country"  ng-options="country for country in countries"></select>
+
+</label>
+	</div>
+	<div class="row row-no-padding absolute-footer">
+		<button class="button button-calm col" ng-click="closeChangeCountry()">CANCEL</button>
+		<button class="button button-calm col" ng-click="changeCountry()">OK</button>
+	</div>
+
+
+
+
+
+
+</ion-content>
+</ion-view>
+</ion-modal-view>

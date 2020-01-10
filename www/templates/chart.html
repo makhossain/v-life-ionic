@@ -1,0 +1,125 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+   <ion-nav-title>
+            <img alt="Company Logo1" class="logoimg" src="img/logo.png">
+           
+    </ion-nav-title>
+  <ion-content>
+
+<div style="margin-top: 20px;"></div>
+
+
+ <div ng-controller="IndexCtrl">
+
+ <h3 style="margin-top: 40px;margin-left: 20px;">Program Status: Day {{programinfo.DaysActiveinProgram}} of {{programinfo.DaysintheProgramTotal}}</h3>
+
+<div class="row responsive-sm">
+  <div class="col profilecol">
+  	<div class="card">
+  <div class="item item-divider">
+   STARTING WEIGHT
+  </div>
+  <div class="item item-text-wrap">
+   {{programinfo.StartingWeight}}
+  </div>
+ 
+</div>
+  </div>
+  <div class="col profilecol">
+  	<div class="card">
+  <div class="item item-divider">
+   CURRENT WEIGHT
+  </div>
+  <div class="item item-text-wrap">
+     {{programinfo.LastEnteredWeight}}
+  </div>
+
+</div>
+
+
+  </div>
+
+
+  <div class="col profilecol">
+  	<div class="card">
+  <div class="item item-divider">
+    PROJECTED WEIGHT
+  </div>
+  <div class="item item-text-wrap">
+    {{programinfo.ProjectedWeight}}
+  </div>
+
+</div>
+
+
+  </div>
+
+
+
+</div>
+
+<div class="row responsive-sm">
+
+  <div class="col profilecol">
+  	<div class="card">
+  <div class="item item-divider">
+    I'm a Header in a Card!
+  </div>
+  <div class="item item-text-wrap">
+                
+
+  <div google-chart="LineChart" ng-model="data3" class="smallGraph"></div>
+   
+   
+   
+  </div>
+  <div class="item item-divider">
+    <div class="item item-text-wrap">
+
+<strong>You are losing {{programinfo.AverageDailyWeightLoss}} lbs/day!</strong> At your current
+pace you will lose a total of {{programinfo.ProjectedWeightLoss}} lbs by the end of
+your program and will weight <strong> {{programinfo.ProjectedWeight}} lbs</strong>
+</div>
+
+</div>
+
+</div>
+
+
+  </div>
+
+</div>
+
+
+            <div class="fc_login_form_footer">
+      <div class="row">
+        <div class="col-xs-6">
+  
+            <a class="btn btn-success btn-full" href="#" onclick="window.open('http://www.nraboy.com/contact', '_system', 'location=yes'); return false;">
+               Visit Our <br />Website
+            </a>
+
+
+        </div>
+        <div class="col-xs-6">
+
+         <a href="tel:11111111" class="btn btn-info btn-full">Click to <br />Call us</a>
+        </div>
+      </div>
+        </div>
+
+
+
+
+
+
+
+ </div>
+
+
+
+
+
+
+  </ion-content>
+</ion-view>

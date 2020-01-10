@@ -1,0 +1,11 @@
+{
+  "name": "Cognisance",
+  "short_name": "Cognisance Science",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

@@ -1,0 +1,10 @@
+.channel {
+    color: #3ad9c5 !important;
+	border-color: #3ad9c5;
+	opacity: 1;
+	margin-top: -2px;
+}
+
+.channel .ion-ios-monitor-outline:before {
+	content: "";
+}

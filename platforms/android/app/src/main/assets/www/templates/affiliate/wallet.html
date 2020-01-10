@@ -1,0 +1,93 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+
+<pre class="hide">{{data}}</pre>
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Wallet</h3>
+    </div>
+
+    <div class="Post__details">
+
+				<!-- statistics started -->
+				<div class="card">
+				  <div class="item item-text-wrap bg-aflt-green">
+				  	<h2>{{data.available_wallet}} {{data.currency}}</h2>
+				    Available amount in wallet
+				  </div>
+				</div>
+
+				<div class="card">
+				  <div class="item item-text-wrap bg-aflt-dark">
+				  	<h2></h2>
+            <p style="color:#fff">From affiliate: {{data.from_affiliate}} </p>
+            <p style="color:#fff">From External Source: {{data.from_external_source}}</p>
+            <p style="color:#fff">Total Withdraw: {{data.total_withdraw}}</p>
+            <p style="color:#fff">Used for purchase: {{data.used_for_purchase}}</p>
+				  </div>
+				</div>
+				<!-- statistics end -->
+
+        <div class="list">
+          <div class="row m-btm-10">
+            <div class="col-100">Top up from external source</div>
+          </div>
+          <div class="row m-btm-20">
+            <div class="col-80">
+              <label class="item item-input">
+                <input type="text" placeholder="50" ng-model="FilterData.amount">
+              </label>
+            </div>
+            <div class="col-20">
+              <button class="button button-positive activated" ng-click="add()">Add</button>
+            </div>
+          </div>
+        </div>
+        <!-- statistics end -->
+
+				<!-- refferal table started -->
+        <div class="row m-btm-10">
+          <div class="col-100">Wallet transection</div>
+        </div>        
+				<div class="row row-header">
+          <div class="col">Date</div>
+          <div class="col">Amount</div>
+          <div class="col">Type</div>
+          <div class="col">Delete</div>
+        </div>
+
+        <div class="row" ng-repeat="item in data.transaction">
+          <div class="col">{{item.date}}</div>
+          <div class="col">{{item.amount}} {{data.currency}}</div>
+          <div class="col">{{item.type}}</div>
+          <div class="col">
+          	<button class="button" style="background: transparent;">
+          		<i class="icon ion-android-delete"></i>
+          	</button>
+          </div>
+        </div>
+  
+        </div>
+				<!-- refferal table end -->
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,49 @@
+<ion-modal-view class="shop-cart-modal">
+    <ion-header-bar align-title="center">
+        <div class="buttons">
+            <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+        </div>
+    </ion-header-bar>
+
+    <div class='bar bar-subheader bar-calm'>
+        <h1 class="title">Stripe</h1>
+    </div>
+    
+    <ion-content class="has-subheader padding">
+
+      <div class="list">
+        <div class="item item-divider">
+          Card Information
+        </div>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Card Number</span>
+          <input type="text" ng-model="newOrder.card_no" maxlength="16" placeholder="1234 5678-1234-5678">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Expiry Month</span>
+          <input type="number" ng-model="newOrder.month" min="1" max="12"  placeholder="MM">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Expiry Year</span>
+          <input type="number" ng-model="newOrder.year" min="1" placeholder="YY">
+        </label>        
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">CVC</span>
+          <input type="text" ng-model="newOrder.cvc" placeholder="123">
+        </label>
+        <label class="item item-input item-stacked-label" style="padding:6px 5px;">
+            <div>
+              <span class="input-label">Are you sure to pay with Stripe?</span>
+            </div>
+            <div>
+              <img src='../img/payment-stripe.png' />              
+            </div>           
+        </label>
+        <div class="button-bar">
+          <button class="button button-calm button-block button-outline" ng-click="modal.hide()">Cancel</button>
+          <button class="button button-calm button-block" ng-click="orderPlaceByStripe(newOrder)">Place Order</button>
+        </div>
+      </div>
+
+    </ion-content>
+</ion-modal-view>

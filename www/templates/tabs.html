@@ -1,0 +1,279 @@
+<ion-side-menus>
+   <!-- Center content -->
+   <ion-side-menu-content>
+      <!--The nav bar that will be updated as we navigate between views.-->
+      <ion-nav-bar ng-class="showmenu ? 'hide' : 'bar-stable'">
+         <ion-nav-back-button>
+         </ion-nav-back-button>
+         <!-- <ion-nav-back-button class="button-clear">
+            <i class="icon ion-ios-arrow-back"></i> ­
+            </ion-nav-back-button> -->
+         <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon" menu-toggle="left">
+            </button>
+         </ion-nav-buttons>
+         <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()" ng-if="notifyicon"></button>
+            <button class="button button-icon icon ion-ios-cart button-clear button-calm" ng-click="showCartModal()" ng-if="showmenucart && cartCount>0">
+            {{cartCount}}
+            </button>
+         </ion-nav-buttons>
+      </ion-nav-bar>
+      <!--
+         Create tabs with an icon and label, using the tabs-positive style.
+         Each tab's child <ion-nav-view> directive will have its own
+         navigation history that also transitions its views in and out.
+         -->
+      <ion-tabs class="tabs-icon-top tabs-color-active-calm" style="height: 100%;width: 100%;position: absolute;">
+         <!-- Chat Tab -->
+         <div class="new-msg-indicator" ng-if="msgicon"></div>
+         <ion-tab href="#/tab/messages" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" title="{{ 'MainNavChat' | translate }}" class="chat-actv-icon" >
+            <ion-nav-view name="tab-messages">
+            </ion-nav-view>
+         </ion-tab>
+         <!-- Channels Tab -->
+         <ion-tab href="#/tab/channels" icon-off="ion-ios-monitor-outline" icon-on="ion-ios-monitor" title="{{ 'MainNavChannels' | translate }}" class="channel">
+            <ion-nav-view name="tab-channels">
+            </ion-nav-view>
+         </ion-tab>
+         <!-- Dashboard Tab -->
+         <ion-tab href="#/tab/home" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" title="{{ 'MainNavHome' | translate }}" class="test">
+            <ion-nav-view name="tab-home">
+            </ion-nav-view>
+         </ion-tab>
+         <!-- Learn Tab -->
+         <!-- <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()" ng-if="notifyicon"></button> -->
+         <ion-tab icon-off="ion-android-bulb" icon-on="ion-android-bulb" title="{{ 'MainNavLearn' | translate }}" ui-sref="App.learn" class="learn">
+            <ion-nav-view name="tab-learn">
+            </ion-nav-view>
+         </ion-tab>
+         <!-- Health Tab -->
+         <ion-tab icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" title="{{ 'MainNavHealth' | translate }}" ui-sref="App.health" class="health">
+            <ion-nav-view name="tab-health">
+            </ion-nav-view>
+         </ion-tab>
+         <!-- Contact tab for messaging page -->
+         <ion-tab hidden="true" icon="ion-person" ui-sref="App.contacts">
+            <ion-nav-view hidden="true" name="tab-contacts">
+            </ion-nav-view>
+         </ion-tab>
+         <!-- Group tab for messaging page -->
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.group">
+            <ion-nav-view name="tab-group">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.shop">
+            <ion-nav-view name="tab-shop">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.email">
+            <ion-nav-view name="tab-email">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.product">
+            <ion-nav-view name="tab-product">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.wppage">
+            <ion-nav-view name="tab-wppage">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.checkout">
+            <ion-nav-view name="tab-checkout">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.stripe">
+            <ion-nav-view name="tab-stripe">
+            </ion-nav-view>
+         </ion-tab>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatereferrals">
+            <ion-nav-view name="tab-affiliatereferrals">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatedemo">
+            <ion-nav-view name="tab-affiliatedemo">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliateoverview">
+            <ion-nav-view name="tab-affiliateoverview">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatepayments">
+            <ion-nav-view name="tab-affiliatepayments">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatelink">
+            <ion-nav-view name="tab-affiliatelink">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatewallet">
+            <ion-nav-view name="tab-affiliatewallet">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatecampaign">
+            <ion-nav-view name="tab-affiliatecampaign">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatebanner">
+            <ion-nav-view name="tab-affiliatebanner">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatecoupon">
+            <ion-nav-view name="tab-affiliatecoupon">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliateoverall">
+            <ion-nav-view name="tab-affiliateoverall">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatetrafficlog">
+            <ion-nav-view name="tab-affiliatetrafficlog">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatecampaignreport">
+            <ion-nav-view name="tab-affiliatecampaignreport">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliaterefferalhistory">
+            <ion-nav-view name="tab-affiliaterefferalhistory">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatemlm">
+            <ion-nav-view name="tab-affiliatemlm">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatecustomslug">
+            <ion-nav-view name="tab-affiliatecustomslug">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatepaymentsetting">
+            <ion-nav-view name="tab-affiliatepaymentsetting">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.accountprofile">
+            <ion-nav-view name="tab-accountprofile">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.accountorder">
+            <ion-nav-view name="tab-accountorder">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.accountsubscription">
+            <ion-nav-view name="tab-accountsubscription">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.accountadrs">
+            <ion-nav-view name="tab-accountadrs">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.broadcast">
+            <ion-nav-view name="tab-broadcast">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.userlist">
+            <ion-nav-view name="tab-userlist">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.post">
+            <ion-nav-view name="tab-singlepost">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.learnsubcategory">
+            <ion-nav-view name="tab-learnsubcategory">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.learnlesson">
+            <ion-nav-view name="tab-learnlesson">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.learnsinglelesson">
+            <ion-nav-view name="tab-learnsinglelesson">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.channels-channel">
+            <ion-nav-view name="tab-channels-channel">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.settingsMessages">
+            <ion-nav-view name="tab-settingsMessages">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.settingsContacts">
+            <ion-nav-view name="tab-settingsContacts">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.settingsAccount">
+            <ion-nav-view name="tab-settingsAccount">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.changelanguage">
+            <ion-nav-view name="tab-changelanguage">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.game({gameId:'color'})">
+            <ion-nav-view name="tab-game">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.editaccount">
+            <ion-nav-view name="tab-editaccount">
+            </ion-nav-view>
+         </ion-tab>
+         <ion-tab hidden="true" icon="ion-ios-people" ui-sref="App.affiliatewithdraw">
+            <ion-nav-view name="tab-withdraw">
+            </ion-nav-view>
+         </ion-tab>
+      </ion-tabs>
+      <!--END  -->
+      <ion-nav-view name="menuContent">
+      </ion-nav-view>
+   </ion-side-menu-content>
+   <!-- Left menu -->
+   <ion-side-menu class="SideMenu" side="left">
+      <ion-content has-header="true">
+         <div class="User">
+            <div class="User__avatar">
+               <img class="User__avatar-image" ng-if="profile.avatar" ng-src="{{profile.avatar}}">
+               <img class="User__avatar-image" ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png"></img>
+               </img>
+            </div>
+            <div class="User__name">
+               {{profile.name}}
+            </div>
+         </div>
+         <!-- MAGIC BEGIN -->
+         <category-tree categories="categories" title="Categories">
+         </category-tree>
+         <!-- <ion-list class="SideMenu__list">
+            <div class="Submenu">
+                <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-information-outline"></i> Information</ion-item>
+                <div class="Submenu__list">
+                    <ion-item href="#/" class="item-icon-left" menu-close>About Congnisance</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Customer Services</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Shipping</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Privacy Policy</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Disclamer</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Terms and Conditions</ion-item>
+                </div>
+            </div>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-cart-outline"></i> Shop</ion-item>
+            <div class="Submenu">
+                <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-person-outline"></i> My Account</ion-item>
+                <div class="Submenu__list">
+                    <ion-item href="#/" class="item-icon-left" menu-close>Profile</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>My Orders</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>My Subscriptions</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Addresses</ion-item>
+                </div>
+            </div>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-pulse"></i> Affiliate Dashboard</ion-item>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-monitor-outline"></i> Administration</ion-item>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-gear-outline"></i> Settings</ion-item>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-power"></i> {{ 'SidebarSignOut' | translate }}</ion-item>
+            </ion-list> -->
+         <div class="Version">
+            Version 1.1.5
+         </div>
+      </ion-content>
+   </ion-side-menu>
+</ion-side-menus>

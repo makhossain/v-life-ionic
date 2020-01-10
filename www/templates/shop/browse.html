@@ -1,0 +1,23 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<ion-content class="shop shop-browse">
+	<ion-refresher pulling-text="Refresh" on-refresh="doRefresh()"></ion-refresher>
+	<ion-list>
+		<div class="item item-thumbnail-left item-button-right" ng-repeat="product in products">
+			<img ng-src="{{product.img}}" ui-sref="App.product({productID : product.postid})">
+			<!-- <img ng-src="{{product.img}}"> -->
+			<h2 ui-sref="App.product({productID : product.postid})" ng-bind-html="product.title" style="white-space: initial;"></h2>
+			<!-- <h2  ng-bind-html="product.title" style="white-space: initial;"></h2> -->
+		    <p>Price: 
+		    	<span class="line-through" ng-if="product.sale">${{product.regular}}</span>  
+		    	<span class="sale-price"   ng-if="product.sale">${{product.sale}}</span>  
+		    	<span class="sale-price"   ng-if="!product.sale">${{product.regular}}</span>  
+		   	</p>
+		   	<!-- {{product.stock_status}} -->
+		    <button class="button button-calm" ng-click="addToCart(product); $event.stopPropagation();" ng-if="product.stock_status =='instock'">
+		        <i class="icon ion-android-cart"></i>    
+		    </button>
+		    <span ng-if="product.stock_status =='outofstock'" style="font-weight:600; color:#cd3800;">Out of stock</span>
+		</div>
+	</ion-list>
+</ion-content>
+</ion-view>

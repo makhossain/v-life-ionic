@@ -1,0 +1,78 @@
+<ion-side-menus>
+   <!-- Center content -->
+   <ion-side-menu-content>
+      <!--The nav bar that will be updated as we navigate between views.-->
+      <ion-nav-bar ng-class="showmenu ? 'hide' : 'bar-stable'">
+         <ion-nav-back-button>
+         </ion-nav-back-button>
+         <ion-nav-back-button class="button-clear">
+            <i class="icon ion-ios-arrow-back"></i> ­
+         </ion-nav-back-button>
+         <button class="button button-icon ion-ios-arrow-back calm" ng-click="goBack()"></button>
+         <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()">
+            </button>
+            <button class="button button-icon icon ion-ios-cart button-clear button-calm" ng-click="showCartModal()">
+            {{cartCount}}
+            </button>
+         </ion-nav-buttons>
+      </ion-nav-bar>
+      <!--
+         Create tabs with an icon and label, using the tabs-positive style.
+         Each tab's child <ion-nav-view> directive will have its own
+         navigation history that also transitions its views in and out.
+         -->
+      <ion-nav-view name="tab-broadcast"> </ion-nav-view>
+      <!--END  -->
+      <ion-nav-view name="menuContent"></ion-nav-view>
+   </ion-side-menu-content>
+   <!-- Left menu -->
+   <ion-side-menu class="SideMenu" side="left">
+      <ion-content has-header="true">
+         <div class="User">
+            <div class="User__avatar">
+               <img class="User__avatar-image" ng-if="profile.avatar" ng-src="{{profile.avatar}}">
+               <img class="User__avatar-image" ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png">
+               </img>
+               </img>
+            </div>
+            <div class="User__name">
+               {{profile.name}}
+            </div>
+         </div>
+         <!-- MAGIC BEGIN -->
+         <category-tree categories="categories" title="Categories">
+         </category-tree>
+         <!-- <ion-list class="SideMenu__list">
+            <div class="Submenu">
+                <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-information-outline"></i> Information</ion-item>
+                <div class="Submenu__list">
+                    <ion-item href="#/" class="item-icon-left" menu-close>About Congnisance</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Customer Services</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Shipping</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Privacy Policy</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Disclamer</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Terms and Conditions</ion-item>
+                </div>
+            </div>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-cart-outline"></i> Shop</ion-item>
+            <div class="Submenu">
+                <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-person-outline"></i> My Account</ion-item>
+                <div class="Submenu__list">
+                    <ion-item href="#/" class="item-icon-left" menu-close>Profile</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>My Orders</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>My Subscriptions</ion-item>
+                    <ion-item href="#/" class="item-icon-left" menu-close>Addresses</ion-item>
+                </div>
+            </div>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-pulse"></i> Affiliate Dashboard</ion-item>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-monitor-outline"></i> Administration</ion-item>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-ios-gear-outline"></i> Settings</ion-item>
+            <ion-item href="#/" class="item-icon-left" menu-close><i class="icon ion-power"></i> Sign Out</ion-item>
+            </ion-list> -->
+         <div class="Version">
+            Version 1.1.5
+         </div>
+      </ion-content>
+   </ion-side-menu>
+</ion-side-menus>

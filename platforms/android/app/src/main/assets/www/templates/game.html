@@ -1,0 +1,18 @@
+<link href="css/health.css" rel="stylesheet">
+<ion-view view-title="<img src='./img/logo-inline.png' />" hide-tabs="true">
+	<ion-header-bar align-title="center">
+	    <div class="buttons">
+	        <a class="button button-icon ion-ios-arrow-back calm" ui-sref="App.health" style="margin-top:8px;"></a>
+	        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+	    </div>
+	</ion-header-bar>
+
+	<ion-content scroll="true" class="games has-header has-tabs" overflow-scroll="true">
+		  <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+	  <div class="games-iframe" style="overflow:auto;-webkit-overflow-scrolling:touch">
+		<iframe src="{{iframe_url}}" height="100%" width="100%">
+		    <p>Your browser does not support iframes.</p>
+		</iframe>
+	  </div>
+	</ion-content>               
+</ion-view>

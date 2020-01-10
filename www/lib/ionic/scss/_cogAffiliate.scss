@@ -1,0 +1,27 @@
+.Affiliate {
+	.row-header .col {
+	    background-color:#fafafa;
+	}
+
+	.col {
+		color: #666;
+	    border: solid 1px #eee;
+	    border-bottom-style: none;
+	    border-right-style: none;
+	}
+
+	.col:last-child {
+	    border-right: solid 1px #eee;
+	}
+
+	.row:last-child .col {
+	    border-bottom: solid 1px #eee;
+	}
+
+	&-settings {
+		.item-checkbox {
+			color: #666;
+		}
+	}
+
+}

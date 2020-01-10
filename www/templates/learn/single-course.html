@@ -1,0 +1,46 @@
+<link href="css/learn.css" rel="stylesheet">
+<ion-view view-title="<img src='./img/logo-inline.png' />" hide-tabs="true">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <a class="button button-icon ion-ios-arrow-back calm" href="#/tab/learnsubcategory/{{catid}}" style="margin-top: 8px;"></a>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+
+    <ion-content class="Channel Learn">
+
+
+
+        <!-- Refresh to get the new posts -->
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+
+        <h4 class="Channel__name" ng-bind-html="data.category.name"></h4>
+        <img src="{{data.category.img}}" class="u-WidthFull" alt="">
+        <p class="Channel__suscribers m-btm-10">{{data.category.lesson}} Lesson(s)</p>
+        
+        <div class="Channel__posts" href="#/tab/learnsinglelesson/{{post.id}}/{{lessonid}}/{{catid}}" ng-repeat="post in data.lesson.post">
+            <div class="Channel__posts-item"> 
+              <a href="#/tab/learnsinglelesson/{{post.id}}/{{lessonid}}/{{catid}}">
+                    <span class="Channel__posts-dot" ng-if="!post.seen"></span>
+                    <h5 class="Channel__posts-name m-btm-10" ng-bind-html="post.title"></h5>
+                    <!-- <img class="u-WidthFull m-btm-10" fallback-src="./img/logo.png" src="{{post.img}}" alt=""> -->
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Infinit scroll -->
+        <!-- <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="1%" icon="ion-loading-c"> </ion-infinite-scroll> -->
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+  <ion-content class="Chat padding">
+    <img class="Chat__img" ng-src="{{chat.face}}">
+    <div class="Chat__message">
+        <div class="Chat__message-wrapper Chat__message-wrapper--positive-">
+            {{chat.lastText}}
+        </div>
+        <p class="Chat__message-time">12/01/2016</p>
+    </div>
+  </ion-content>
+</ion-view>

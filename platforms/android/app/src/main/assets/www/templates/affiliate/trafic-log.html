@@ -1,0 +1,92 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+<pre class="hide">{{data}}</pre>
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Traffic Log</h3>
+    </div>
+
+    <div class="Post__details">
+
+        <!-- statistics started -->
+        <div class="card">
+          <div class="item item-text-wrap">
+            <h2>{{data.stats.visits}}</h2>
+            Total Visits
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-text-wrap">
+            <h2>{{data.stats.conversions}}</h2>
+            Converted Visits
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-text-wrap">
+            <h2>{{data.stats.success_rate}}</h2>
+            Success Rate 
+          </div>
+        </div>
+        <!-- statistics end -->
+
+        <!-- shorting form started -->
+        <div class="list">
+
+          <div class="row m-btm-20">
+            <div class="col-50">
+              <label class="item item-input">
+                <input type="text" placeholder="From - yyyy/mm/dd" ng-model="FilterData.start" ng-click="filterstart();">
+              </label>
+            </div>
+            <div class="col-50">
+              <label class="item item-input">
+                <input type="text" placeholder="To - yyyy/mm/dd" ng-model="FilterData.end" ng-click="filterend();">
+              </label>
+            </div>
+          </div>
+
+        <button class="button button-block button-positive activated" ng-click="getFilter()">Apply</button>
+
+          
+        </div> <!-- list -->
+        <!-- shorting form end -->
+
+        <!-- refferal table started -->
+        <div class="row row-header">
+          <div class="col">Reffering URL</div>
+          <div class="col">Device</div>
+          <div class="col">Date</div>
+          <div class="col">Converted</div>
+        </div>
+
+       <div class="row" ng-repeat="item in data.items">
+          <div class="col">{{item.url}}</div>
+          <div class="col">{{item.device}}</div>
+          <div class="col">{{item.visit_date}}</div>
+          <div class="col">{{item.status}}</div>
+        </div>
+
+        <!-- refferal table end -->
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+</ion-view>

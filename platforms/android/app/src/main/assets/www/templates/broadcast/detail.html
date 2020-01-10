@@ -1,0 +1,86 @@
+<ion-view view-title="<img src='././img/logo-inline.png' />" class="messages broadcast messages-detail" hide-tabs>
+<link href="css/broadcast.css" rel="stylesheet">
+
+
+    <ion-header-bar align-title="center">
+        
+        <div class="buttons buttons-left header-item">
+            <span class="left-buttons">
+            <button class="button button-icon ion-ios-arrow-back calm" ui-sref="App.messages"></button>
+            </span>
+        </div>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;padding:0"><img src="././img/logo-inline.png"></div>
+
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+            <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+
+    </ion-header-bar>
+
+    <!-- admin options [admin/HQ only]-->
+    <div class="bar bar-subheader bar-calm">
+
+        <div ng-if="admin" style="width:100%;">
+            <div class="list">
+                <label class="item item-input item-select item-calm">
+                    <div class="input-label">Select country</div>
+                    <select ng-model="inputText.country">
+                        <option value="BD">Bangladesh</option>
+                        <option value="CN">China</option>
+                        <option value="SG">Singapore</option>
+                        <option value="HK">Hong Kong</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="TH">Thailand</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <!-- if not admin -->
+        <h1 ng-if="!admin" class="title" style="font-size: 20px;padding: 15px;">Broadcast</h1>
+    </div>
+    <!-- end admin options-->
+
+    <ion-content class="has-subheader padding-horizontal" style="bottom:{{contentBottom}};background-color: rgba(211, 218, 224, 0.19);" delegate-handle="mainScroll">
+
+    <!-- for warehouse owner -->
+    <!-- <ion-content class="padding-horizontal" style="bottom:{{contentBottom}};top:54px;background-color: rgba(211, 218, 224, 0.19);" delegate-handle="mainScroll"> -->
+
+
+        <div ng-repeat="item in Detail">
+            <div ng-if="item.time - Detail[$index-1].time >= 86400000" class="text-center padding-vertical conversation-time"><span>{{item.time | date:"dd/MM/yyyy"}}</span></div>
+            <div class="row row-no-padding" ng-class="{'row-reverse':item.from==0}">
+                <div ng-if="item.from == 0" class="col col-top col-10 margin-left float-right"><div ng-if="Detail[$index-1].from != 0 || item.time - Detail[$index-1].time >= 86400000">
+                    <div class="User__avatar">
+                        <img class="User__avatar-image" ng-if="Me.avatar.$value" ng-src="{{Me.avatar.$value}}">
+                        <img class="User__avatar-image" ng-if="!Me.avatar.$value" ng-src="css/img/avatar/{{Me.name.$value | firstChar}}.png">
+                    </div>
+                </div></div>
+                <div ng-if="item.from == 1" class="col col-top col-10 margin-right"><div ng-if="Detail[$index-1].from != 1 || item.time - Detail[$index-1].time >= 86400000">
+                    <div class="User__avatar">
+                        <img class="User__avatar-image" ng-if="Friend.avatar" ng-src="{{Friend.avatar}}">
+                        <img class="User__avatar-image" ng-if="!Friend.avatar" ng-src="css/img/avatar/{{Friend.name | firstChar}}.png">
+                    </div>
+                </div></div>
+                <div class="col col-80 relative">
+                    <span ng-if="item.from != Detail[$index-1].from || item.time - Detail[$index-1].time >= 86400000" class="messages-from ion-arrow-up-b" ng-class="{'friend':item.from==1}"></span>
+                    <div class="width-100">
+                        <span class="list-messages" on-hold="showPopupMenuMessages(item.type,item.content,item.$id)">
+                            <span ng-if="item.type=='text'">{{item.content}}</span>
+                            <img ng-if="item.type=='sticker'" ng-src="css/img/sticker/{{item.content}}.png">
+                            <img ng-if="item.type=='picture'" ng-src="{{item.content}}">
+                            <a ng-if="item.type=='location'" ng-click="openLink('https://google.com/maps/?q={{item.content.lat}},{{item.content.lng}}')">
+                                <img ng-src="{{getMap}}center={{item.content.lat}},{{item.content.lng}}&zoom=18&size=300x300&markers=color:red%7Clabel:S%7C{{item.content.lat}},{{item.content.lng}}">
+                            </a>
+                            <div ng-if="item.from != Detail[$index+1].from" class="stable">{{item.time | date:'HH:mm'}}</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div ng-if="!Block.$value" class="width-100 messages-detail-footer" style="height:{{contentBottom}}" ng-include="'templates/broadcast/tabs-input.html'"></div>
+</ion-view>

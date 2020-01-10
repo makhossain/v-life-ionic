@@ -1,0 +1,64 @@
+<link href="css/learn.css" rel="stylesheet">
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+    <ion-header-bar align-title="center">
+        <div class="buttons">
+            <a class="button button-icon ion-ios-arrow-back calm" href="#/tab/home" style="margin-top: 8px;"></a>
+
+            <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+            
+            <div class="buttons buttons-right header-item">
+                <span class="right-buttons">
+                    <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+                </span>
+            </div>
+        </div>
+    </ion-header-bar>
+
+
+
+
+   <!--  #387EF5 -->
+   <ion-content class="Channels">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <div class="buttons">
+         <button class="" ng-click="showDetails = ! showDetails" ng-class="{'button button-small button-positive': !showDetails, 'button button-small button-outline button-positive': showDetails}">All</button>
+         <button class="" ng-click="showDetails = ! showDetails" ng-class="{'button button-small button-positive': showDetails, 'button button-small button-outline button-positive': !showDetails}">Completed</button>
+      </div>
+      <div ng-hide="showDetails" class="all">
+         <div ng-repeat="post in posts track by $index">
+            <div class="row" ng-if="$even">
+               <div class="Channels__item col col-50">
+                  <a href="#/tab/learnsubcategory/{{post.id}}">
+                     <h6 class="Channels__item-name" ng-bind-html="post.name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" src="{{post.img}}" alt="">
+                  </a>
+               </div>
+               <div class="Channels__item col col-50" ng-if="posts[$index+1].name">
+                  <a href="#/tab/learnsubcategory/{{posts[$index+1].id}}">
+                     <h6 class="Channels__item-name" ng-bind-html="posts[$index+1].name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" src="{{posts[$index+1].img}}" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="showDetails" class="follow">
+         <div ng-repeat="completepost in data.completedcategory track by $index">
+            <div class="row" ng-if="$even">
+               <div class="Channels__item col col-50">
+                  <a href="#/tab/learnlesson/{{completepost.id}}/{{completepost.parent}}">
+                     <h6 class="Channels__item-name" ng-bind-html="completepost.name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" src="{{completepost.img}}" alt="">
+                  </a>
+               </div>
+               <div class="Channels__item col col-50" ng-if="data.completedcategory[$index+1].name">
+                  <a href="#/tab/learnlesson/{{data.completedcategory[$index+1].id}}/{{data.completedcategory[$index+1].parent}}">
+                     <h6 class="Channels__item-name" ng-bind-html="data.completedcategory[$index+1].name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" src="{{data.completedcategory[$index+1].img}}" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </ion-content>
+</ion-view>

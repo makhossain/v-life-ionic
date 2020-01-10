@@ -1,0 +1,29 @@
+.location-main .location-range{
+	position:absolute;
+	top:16px;
+	right:16px;
+	font-size:80%
+}
+.modal-search-location{
+	width:100%;
+	height:100%;
+	top:0;
+	bottom:0;
+	left:0
+}
+.modal-search-location .title{
+	margin-top:5px;
+	overflow:visible
+}
+
+/*active icon css*/
+.chat-actv-icon {
+  color: #3ad9c5 !important;
+  border-color: #3ad9c5;
+  opacity: 1;
+  margin-top: -2px;
+}
+
+.chat-actv-icon .ion-ios-chatboxes-outline:before {
+  content: "";
+}

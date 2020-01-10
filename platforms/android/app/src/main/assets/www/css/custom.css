@@ -1,0 +1,457 @@
+/*login error modal*/
+.button.button-positive.active, .button.button-positive.activated, .button.button-positive{
+    background-color: #31bead;
+}
+
+/*utility*/
+.m-top-10{
+  margin-top: 10px;
+}
+
+.m-top-20{
+  margin-top: 20px;
+}
+
+.m-top-30{
+  margin-top: 30px;
+}
+
+.m-btm-10{
+  margin-bottom: 10px;
+}
+
+.m-btm-15{
+  margin-bottom: 15px;
+}
+
+.m-btm-20{
+  margin-bottom: 20px;
+}
+
+.m-btm-25{
+  margin-bottom: 25px;
+}
+
+.m-btm-30{
+  margin-bottom: 30px;
+}
+
+.t-uc{
+  text-transform: uppercase;
+}
+
+ol, ul {
+  padding-left: 15px;
+}
+li{
+  list-style: initial;
+  line-height: 28px;
+}
+ol li{
+  list-style: decimal;
+}
+
+ol.bullet-none li, ul.bullet-none li{
+  list-style: none;
+}
+
+/*has error*/
+.has-error p{
+  color: #fa3c4c;
+}
+
+/*user avator*/
+.Intro__Icon-avator{
+  overflow: hidden;
+}
+
+.Intro__Icon-avator img{
+  height: 100%;
+    max-width: inherit !important;
+}
+
+/*chatting*/
+
+.messages-detail-footer .tabs{
+  top: 0;
+  padding-top: 0;
+}
+
+/*paralax fix on page*/
+.fullwidth-block{
+  background-attachment: inherit !important;
+}
+
+/*page content fix*/
+
+.sc-textbox-content{
+  padding: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/*affiliate wp content fix*/
+.affwp-creative pre{
+  background-color: rgba(0,0,0,.01);
+  border: 1px solid rgba(51,51,51,.1);
+  line-height: 1.5;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/*wall extended css*/
+.wall-header__like, .wall-header__comment{
+  position:absolute;
+  color: #777;
+  right:15px;
+  height:0;
+}
+
+.wall-header__like {
+  top: 15px;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.wall-header__like button, .wall-header__comment button{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.wall-header__comment{
+  top: 60px;
+}
+
+.wall-header__like a, .wall-header__comment a {
+  position: relative;
+  top: 5px;
+  font-size: 18px;
+  color: #a1a1a1;
+  text-decoration: none;
+  padding: 10px 5px;
+}
+
+.wall-header__like button, .wall-header__comment button{
+  color: #a1a1a1 !important;
+}
+
+.wall-header__like button:before, .wall-header__comment button:before{
+  font-size: 25px !important;
+  line-height: 25px !important;
+}
+
+.Wall__content-footer span.subdued {
+  font-size: 14px;
+}
+
+.Wall__content-footer .button-icon {
+  padding: 0;
+}
+
+.Wall__content-footer .button-icon:before {
+  font-size: 17px !important;
+  line-height: 15px !important;
+}
+
+.WallPost__author a{
+  text-decoration: none;
+}
+
+
+/*Home page extended*/
+.Recognition-wall .Wall__content-cata {
+  margin-bottom: 10px;
+}
+
+.Recognition-wall .Wall__content-cata img{
+  width: auto !important;
+  max-height: 25px;
+}
+
+.Thumb-holder p {
+  color: #5e5e5e;
+}
+
+.Thumb-holder a {
+  text-decoration: none;
+}
+
+.Wall__content-meta { 
+  margin: 5px 0 20px 0;
+}
+
+.Wall__content-meta p {
+  line-height: 0.5;
+}
+
+.Recognition-wall .Wall, .Recognition-wall .Wall img, .WallPost__cover img {
+  width: 100%;
+}
+
+.User__profile-container {
+  background:#EBEBEB;
+}
+
+.User__profile-container .col {
+  position: relative;
+  padding: 15px;
+}
+
+.User__action-count {
+  position: absolute;
+  right: 20px;
+  color: #0076ff;
+}
+
+/*todays top extended*/
+.person__meta a, .person__meta p{
+  text-decoration: none;
+  line-height: 0.5;
+}
+
+.person__country {
+  color: #687980;
+}
+
+
+.header-item .WallPost-content a, .WallPost__commentClear a{
+  text-decoration: none;
+}
+
+/*Learn*/
+.Learn .Channel__posts {
+  border-top: 1px solid #c9c9c9;
+}
+
+.Learn .Channel__posts-item {
+  margin-top: 15px;
+}
+
+.Learn .lesson-type {
+  border: 2px solid #666;
+  display: block;
+  margin: 20px auto 10px;
+  width: 30%;
+  text-align: center
+}
+
+.Learn .lesson-type .button-icon.icon:before{
+  font-size: 24px;
+  padding-right: 5px;
+}
+
+.video-container iframe, .Post__details video{
+  position: relative;
+  width: 100%;
+  height: auto
+}
+.Post__details div{  
+  max-width: 100%;
+}
+
+.Affiliate .col-20 .button{
+  padding: 0 8px;
+}
+
+/*Affiliate overview page*/
+.aff-rank-btn {
+  background: transparent !important;
+  color: #444 !important;
+  border: none !important;
+}
+
+.bg-aflt-dark {
+  background-color: #4f585f !important;
+  color: #fff !important;
+}
+
+.bg-aflt-light-blue {
+  background-color: #607d8b !important;
+  color: #fff !important;
+}
+
+.bg-aflt-light-red {
+  background-color: #f25a68 !important;
+  color: #fff !important;
+}
+
+.bg-aflt-green {
+  background-color: #75c37d !important;
+  color: #fff !important;
+}
+
+.font-100{
+  font-size: 100% !important;
+}
+
+/*chat*/
+/*.new-msg-indicator .icon:after{
+    content: ' ';
+    position: absolute;
+    left: 45px;
+    font-size: 10px;
+    background: #fc4a4a;
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 100%;
+    color: #fff;
+    z-index: 1;
+}*/
+.new-msg-indicator{
+    position: absolute;
+    left: 10%;
+    background: #fc4a4a;
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+/*new contacts request*/
+.new-contacts-indicator{
+    position: absolute;
+    right: 1px;
+    background: #fc4a4a;
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+/*text-white*/
+.text-white {
+  color: #fff !important;
+}
+
+.m-t-10{
+  margin-top: 10px;
+}
+
+.font-100{
+  font-size: 100% !important;
+}
+
+/*Sign-up map fix*/
+
+.modalMap #map {
+  width: 100%;
+  height: 100%;
+}
+
+.modalMap .scroll {
+  height: 100%;
+}
+
+.modalMap .signup-map-input {
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3); 
+}
+
+.modalMap .controls {
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /*height: 32px;*/
+  outline: none;
+}
+
+.item-input.signup-map-input .icon{
+  min-width: 23px;
+}
+.item-input.signup-map-input .ion-ios-close-empty:before{
+  font-size: 30px;
+}
+.pac-container {
+  z-index: 3000 !important;
+}
+.modal-open {
+  pointer-events: auto !important;
+}
+
+/**/
+.content.overflow-scroll {
+  bottom: 0px !important;
+}
+
+.keyboard-open .Login, .keyboard-open .Signup{
+  /*background-size: cover !important;*/
+}
+
+/*games iframe re-sizing for iOS*/
+.games-iframe {
+  max-width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+  height: 100%;
+}
+
+
+.games-iframe iframe{
+  width: 100px;
+  min-width: 100% !important;
+  *width: 100% !important;
+}
+
+/*chat ios fix*/
+.chose-messages {
+  top: 55px; 
+}
+.platform-ios .chose-messages{
+  top: 73px !important;
+}
+
+.platform-ios .games {
+  bottom: 45px;
+}
+
+.Persons .Single__person{
+  list-style: none;
+}
+
+p{
+  margin-bottom: 20px;
+}
+
+table {
+    margin: 0 0 18px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td {
+    font-size: 14px;
+    display: table-cell;
+    line-height: 18px;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+table tbody tr td {
+    vertical-align: top;
+    padding: 9px 10px;
+    color: #333;
+    border: none;
+}
+
+hr {
+    border: solid #f1f1f1;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 20px 0;
+    height: 0;
+}

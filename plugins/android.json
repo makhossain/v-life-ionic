@@ -1,0 +1,84 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.jcjee.plugins.emailcomposer": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "com.paypal.cordova.mobilesdk": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-googlemaps": {
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "co.vlife.app"
+    }
+  },
+  "dependent_plugins": {
+    "card.io.cordova.mobilesdk": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-app-event": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "co.vlife.app"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "co.vlife.app"
+    }
+  }
+}

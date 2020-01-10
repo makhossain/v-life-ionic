@@ -1,0 +1,137 @@
+<ion-view view-title="Daily Input">
+   <ion-nav-title>
+            <img alt="Company Logo1" class="logoimg" src="img/logo.png">
+           
+    </ion-nav-title>
+
+
+
+
+  <ion-content>
+    <!-- App Body Start-->
+  <section class="app_screen_area daily_input">
+    <div class="row">
+  
+
+        <div class="col-xs-12">
+          <h3 class="section_title">Daily Input Form</h3>
+          
+<div>
+
+               <form  name="inputform" ng-submit="input(inputform.$valid)" novalidate>
+
+                  <div class="list">
+
+
+
+
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Weight</span>
+    <input type="text" ng-model="inputData.weight" required="" placeholder="weight" class="weight-input">
+  </label>
+
+
+
+
+                  <label class="item item-input item-stacked-label">
+                     <span class="input-label" style="display: inherit;margin-bottom: 9px;">How’s Your Mood?<br></span>
+                  
+                
+                          <label class="radio-inline radio-style1">
+                          <input type="radio" name="moodstatus" id="inlineRadio1" value="VeryHappy" ng-model="inputData.mood"> 
+
+
+                          <img class="radioimage" src="img/mood1.png" alt="" />
+                        </label>
+                        <label class="radio-inline radio-style1">
+                          <input type="radio" name="moodstatus" id="inlineRadio2" value="Happy"  ng-model="inputData.mood"> <img class="radioimage" src="img/mood2.png" alt=""/>
+                        </label>
+                        <label class="radio-inline radio-style1">
+                          <input type="radio" name="moodstatus" id="inlineRadio3" value="Neutral" ng-model="inputData.mood">  <img class="radioimage" src="img/mood3.png" alt="" />
+                        </label>
+                        <label class="radio-inline radio-style1">
+                          <input type="radio" name="moodstatus" id="inlineRadio4" value="Sad" ng-model="inputData.mood">  <img class="radioimage" src="img/mood4.png" alt="" />
+                        </label>
+                        <label class="radio-inline radio-style1">
+                          <input type="radio" name="moodstatus" id="inlineRadio5" value="Angry" ng-model="inputData.mood">  <img class="radioimage" src="img/mood5.png" alt="" />
+                        </label>
+
+
+
+                  </label>
+
+
+            <label class="item item-input item-stacked-label">
+
+
+
+
+              <span class="input-label" style="display: inherit;margin-bottom: 9px;">Did You Stay On Plan Yesterday?</span> 
+
+
+
+            <div class="row">
+              <div class="col-xs-6 yesterdaybtn"> <label class="radio-inline radio-style2">
+              <input type="radio" name="stayplan" id="stayplan1" value="Yes" ng-model="inputData.stayplan">  <span class="btn btn-success btn-full">YES</span>
+            </label></div>
+              <div class="col-xs-6">
+
+              <label class="radio-inline radio-style2">
+              <input type="radio" name="stayplan" id="stayplan2" value="No" ng-model="inputData.stayplan">  <span class="btn btn-info btn-full">no</span>
+            </label></div>
+            </div>
+            </label>
+
+
+
+                    <label class="item item-input item-stacked-label">
+                      <span class="input-label">Message (optional)</span>
+
+<textarea placeholder="Message (optional)" class="form-control" name="message" id="message" ng-model="inputData.message" rows="4" cols="5"></textarea>
+                    </label>
+
+
+                    <label class="item">
+                      <button class="button button-block button-positive" type="submit">Send Update</button>
+                    </label>
+                  </div>
+
+                      </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="fc_login_form_footer">
+      <div class="row">
+        <div class="col-xs-6">
+  
+            <a class="btn btn-success btn-full" href="#" onclick="window.open('http://www.nraboy.com/contact', '_system', 'location=yes'); return false;">
+               Visit Our <br />Website
+            </a>
+
+
+        </div>
+        <div class="col-xs-6">
+
+         <a href="tel:11111111" class="btn btn-info btn-full">Click to <br />Call us</a>
+        </div>
+      </div>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+
+
+  </ion-content>
+</ion-view>

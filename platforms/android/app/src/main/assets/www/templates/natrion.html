@@ -1,0 +1,22 @@
+<ion-modal-view class="Natrion">
+   <ion-header-bar class="Natrion__bar bar">
+      <h1 class="title">My Nutrition Actions</h1>
+      <button class="button button-clear button button-icon icon ion-ios-close-empty" ng-click="closeNatrion()"></button>
+   </ion-header-bar>
+   <ion-content class="Natrion__content padding">
+      <!-- <h3 class="Natrion__content-heading">My Nutrition Actions</h3> -->
+      <div ng-repeat="post in data.cat" href="#/tab/singleposts/{{post.id}}">
+         <h6 class="Natrion__content-subHeading" ng-bind-html="post.name"></h6>
+         <div class="row">
+            <div class="col col-33"  ng-repeat="postcontain in post.post">
+               <ion-checkbox class="NatrionCheckbox"  ng-model="checkItems[postcontain.id]" >
+                  <div class="Natrion__icon">
+                     <img class="u-WidthFull u-Block" src="{{postcontain.img}}" alt="" />
+                  </div>
+               </ion-checkbox>
+            </div>
+         </div>
+      </div>
+   </ion-content>
+   <button class="Natrion__button-full button button-full button-calm no-animation" ng-click="submitActivity()">Apply</button>
+</ion-modal-view>

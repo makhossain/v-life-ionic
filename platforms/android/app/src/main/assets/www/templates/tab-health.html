@@ -1,0 +1,22 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-content scroll="true" overflow-scroll="true">
+      <!-- 	Start math balls -->
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <div class="list card" ng-repeat="game in score.activity">
+         <div class="item item-body">
+            <img class="full-image" src="{{game.img}}">
+            <h2>{{game.title}}</h2>
+            <p ng-bind-html="game.content">
+            </p>
+            <!-- scores -->
+            <p>
+               <span ng-if="game.alluserbest"><strong>Best score:</strong> {{game.alluserbest}}</span> </br>
+               <span ng-if="game.cuserbest"><strong>Your best score:</strong> {{game.cuserbest}}</span>
+            </p>
+            <p>
+               <button class="button button-block button-calm ion-ios-game-controller-b"  ui-sref="App.game({gameID:'{{game.gamecode}}'})" > Start Playing</button>
+            </p>
+         </div>
+      </div>
+   </ion-content>
+</ion-view>

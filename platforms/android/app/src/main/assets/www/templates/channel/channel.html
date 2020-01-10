@@ -1,0 +1,39 @@
+<link href="css/channel.css" rel="stylesheet">
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+    <ion-header-bar align-title="center">
+        <div class="buttons">
+            <a class="button button-icon ion-ios-arrow-back calm" href="#/tab/channels" style="margin-top: 8px;"></a>
+
+            <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+            
+            <div class="buttons buttons-right header-item">
+                <span class="right-buttons">
+                    <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+                </span>
+            </div>
+        </div>
+    </ion-header-bar>
+
+   <ion-content class="Channel">
+      <!-- Refresh to get the new posts -->
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <h4 class="Channel__name" ng-bind-html="data.category.name"></h4>
+      <span class="" ng-if="markchannelasseen(data.category.id,catinfo.count)"></span>
+      <img src="{{data.category.img}}" class="u-WidthFull" alt="">
+      <button class="button button-small button-outline button-positive" ng-click="follow()">{{btnText}}</button>
+      <p class="Channel__suscribers">{{subscriber}} subscriber(s)</p>
+      <div class="Channel__posts"  ng-repeat="post in data.posts.activity" href="#/tab/singleposts/{{post.postid}}">
+         <div class="Channel__posts-item">
+            <a href="#/tab/singleposts/{{post.postid}}/{{data.category.id}}">
+               <span class="Channel__posts-dot" ng-if="!post.seen"></span>
+               <h5 class="Channel__posts-name" ng-bind-html="post.title"></h5>
+               <p class="Channel__posts-time">{{post.time}}</p>
+               <img class="u-WidthFull" fallback-src="./img/logo.png" ng-src="{{post.img}}" alt="">
+            </a>
+         </div>
+      </div>
+      <!-- Infinit scroll -->
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="1%" icon="ion-loading-c"> </ion-infinite-scroll>
+   </ion-content>
+</ion-view>

@@ -1,0 +1,158 @@
+<style type="text/css">
+  ion-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+  }
+</style>
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <div class='bar bar-subheader bar-calm'>
+      <h1 class="title">Checkout</h1>
+   </div>
+   <ion-content class="has-subheader padding">
+      <div class="list list-inset">
+         <div class="item item-divider">
+            Billing Information
+         </div>
+         <ion-spinner ng-if="!newOrder.billing" style="position:fixed;left: 50%;top: 50%;transform: translate(-50%, -50%);    z-index: 99999999;"></ion-spinner>
+         <label class="item item-input">
+           <span class="input-label">First Name</span>
+           <input type="text" ng-model="newOrder.billing.first_name">
+         </label>
+         <label class="item item-input">
+           <span class="input-label">Last Name</span>
+           <input type="text" ng-model="newOrder.billing.last_name">
+         </label>
+         <label class="item item-input">
+           <span class="input-label">Phone</span>
+           <input type="text" ng-model="newOrder.billing.phone">
+         </label>           
+         <label class="item item-input">
+           <span class="input-label">Address 1</span>
+           <input type="text" ng-model="newOrder.billing.address_1">
+         </label>
+         <label class="item item-input">
+           <span class="input-label">Address 2</span>
+           <input type="text" ng-model="newOrder.billing.address_2">
+         </label>
+<!--          <label class="item item-input">
+           <span class="input-label">State</span>
+           <input type="text" ng-model="newOrder.billing.state">
+         </label> -->
+         <label class="item item-input">
+           <span class="input-label">City</span>
+           <input type="text" ng-model="newOrder.billing.city">
+         </label>
+         <label class="item item-input">
+           <span class="input-label">Zipcode</span>
+           <input type="text" ng-model="newOrder.billing.postcode">
+         </label>
+         <label class="item item-input item-select">
+            <span class="input-label">Country</span>
+            <select ng-model="newOrder.billing.country" ng-change="checkAllfield($event)">
+               <option value="">Select Country</option>
+               <option ng-repeat="(key, value) in newOrder.country_key_value" ng-bind-html="value">{{key}}</option>
+            </select>
+         </label>
+         <ion-checkbox ng-model="newOrder.billingToShipping" ng-change="switchBillingToShipping($event)">Shipping address is same</ion-checkbox>
+         <div class="item item-divider" ng-hide="newOrder.billingToShipping">
+            Shipping Information
+         </div>
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">First Name</span>
+           <input type="text" ng-model="newOrder.shipping.first_name">
+         </label>
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">Last Name</span>
+           <input type="text" ng-model="newOrder.shipping.last_name">
+         </label>
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">Phone</span>
+           <input type="text" ng-model="newOrder.shipping.phone">
+         </label>         
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">Address 1</span>
+           <input type="text" ng-model="newOrder.shipping.address_1">
+         </label>
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">Address 2</span>
+           <input type="text" ng-model="newOrder.shipping.address_2">
+         </label>  
+<!--          <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">State</span>
+           <input type="text" ng-model="newOrder.shipping.state">
+         </label> -->
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">City</span>
+           <input type="text" ng-model="newOrder.shipping.city">
+         </label>
+         <label class="item item-input" ng-hide="newOrder.billingToShipping">
+           <span class="input-label">Zipcode</span>
+           <input type="text" ng-model="newOrder.shipping.postcode">
+         </label>
+         <label class="item item-input item-select" ng-hide="newOrder.billingToShipping">
+            <span class="input-label">Country</span>
+            <select ng-model="newOrder.shipping.country" ng-change="getShipping($event)">
+               <option value="">Select Country</option>
+               <option ng-repeat="(key, value) in newOrder.country_key_value" ng-bind-html="value">{{key}}</option>
+            </select>
+         </label>
+      </div>
+      <div class="list">
+        <div class="item item-divider" ng-if="newOrder.shippingList">
+          Shipping Method
+        </div>
+        <div style="display: block;width: 100%;float: left;" ng-if="newOrder.shippingList"> 
+          <label class="item item-input item-select">
+            <span class="input-label" style="width: 20%;">&nbsp;</span>
+            <select ng-model="newOrder.shipping.method" ng-change="shippingMethod($event)" style="max-width: 80%;">
+              <option value="">Select Shipping Method</option>
+              <option ng-repeat="method in newOrder.shippingList track by $index" value="{{method.cost}}" mid="{{method.id}}" mlabel="{{method.label}}">{{method.flabel}}</option>
+            </select> 
+          </label>
+        </div>              
+        <ion-list ng-if="newOrder.method_unavailable_msg">
+          <ion-spinner ng-if="!easyShippingList"></ion-spinner>
+          <ion-radio ng-repeat="mtd in easyShippingList track by $index" class='easyship_class' ng-model="easyship_charge" value="{{mtd.total_charge}}" ng-click="easyshipCharge($event, mtd.courier_id, mtd.courier_name, mtd.total_charge)" style="font-size:10px;white-space: normal;" >
+          {{mtd.courier_name}} 
+          <br>
+          Charge: <strong>{{mtd.total_charge*dollar_rate+1 | number:2 }} USD</strong> 
+          <br>
+          Delivery time: <strong>{{mtd.min_delivery_time}}-{{mtd.max_delivery_time}} days </strong>  
+          </ion-radio>
+        </ion-list>
+
+         <label class="item item-input" ng-if="total_shipping_cost">
+            <span class="input-label">Shipping Charge</span>
+            <h2>${{total_shipping_cost}}</h2>
+         </label>
+         <label class="item item-input">
+            <span class="input-label">Total Amount</span>
+            <h2>${{costSum}} USD</h2>
+         </label>
+      </div>
+      <div class="list list-inset">
+         <div class="item item-divider">
+            Payment Information
+         </div>
+        <div class="item " ng-if="newOrder.shippingList">
+          Payment Mode
+        </div>
+         <div style="display: block;width: 100%;float: left;"> 
+           <label class="item item-input item-select">
+              <span class="input-label"  style="max-width: 1%;">&nbsp;</span>
+              <select ng-model="newOrder.paymentMethod" ng-change="checkAllfield($event)" style="max-width: 99%;">
+                 <option value="">Select Payment Method</option>
+                 <option ng-repeat="(key, value) in newOrder.methods" value="{{key}}">{{value}}</option>
+              </select>
+           </label>          
+         </div>                 
+         <div class="button-bar">
+            <button class="button button-calm button-block button-outline" ng-click="CancelCheckout()">Cancel</button>
+            <button class="button button-calm button-block" ng-click="placeOrder(newOrder)" ng-if="showBtn">Place Order</button>
+         </div>
+      </div>
+   </ion-content>
+</ion-view>

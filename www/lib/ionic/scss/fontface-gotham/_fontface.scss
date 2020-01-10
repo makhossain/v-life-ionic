@@ -1,0 +1,28 @@
+
+@font-face {
+  font-family: "Gotham Light";
+  @include fontdef($path, "light");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Book";
+  @include fontdef($path, "book");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Medium";
+  @include fontdef($path, "medium");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Bold";
+  @include fontdef($path, "bold");
+  font-weight: normal;
+  font-style: normal;
+}

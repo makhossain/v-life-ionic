@@ -1,0 +1,76 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+<pre class="hide">{{data}}</pre>
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Overall</h3>
+    </div>
+
+    <div class="Post__details">
+
+      <!-- statistics started -->
+      <div class="card">
+        <div class="item item-text-wrap bg-aflt-dark">
+          <h2>{{data.referrals}}</h2>
+          Total referrals
+        </div>
+      </div>
+
+<!--       <div class="card">
+        <div class="item item-text-wrap bg-aflt-light-red">
+          <h2>{{data.total_paid}} {{data.currency}}</h2>
+          Total Earnings (paid Referrals)
+        </div>
+      </div>
+ -->
+      <div class="card">
+        <div class="item item-text-wrap bg-aflt-light-blue">
+          <h2>{{data.visits}}</h2>
+          Total Visits
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-text-wrap bg-aflt-dark">
+          <h2>{{data.conversions}}</h2>
+          Converted Visits
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-text-wrap bg-aflt-green">
+          <h2>{{data.success_rate}}</h2>
+          Success Rate 
+        </div>
+      </div>
+      <!-- statistics end -->
+
+      <!-- achivement table will comes here -->
+      <div class="row row-header">
+        <div class="col bg-aflt-dark">Your Achievements</div>
+      </div>
+
+      <div class="row">
+        <div class="col" ng-repeat="option in data.achivements">On May {{option.add_date}} You moved from {{option.current_rank}} to {{option.prev_rank}}</div>
+      </div>
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+</ion-view>

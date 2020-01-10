@@ -1,0 +1,67 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+   <ion-header-bar align-title="center">
+      <div class="buttons">
+         <a class="button button-icon ion-ios-arrow-back calm" href="#/tab/home" style="margin-top: 8px;"></a>
+         <div class="title title-center header-item" style="left: 57px; right: 57px;">
+            <img src="././img/logo-inline.png">
+         </div>
+         <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+               <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+         </div>
+      </div>
+   </ion-header-bar>
+
+   <ion-content class="Channels">
+
+      <!-- Refresh to get the new posts -->
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+      </ion-refresher>
+      <div class="buttons">
+         <button class="" ng-click="showDetails = ! showDetails" ng-class="{'button button-small button-positive': !showDetails, 'button button-small button-outline button-positive': showDetails}">All</button>
+         <button class="" ng-click="showDetails = ! showDetails" ng-class="{'button button-small button-positive': showDetails, 'button button-small button-outline button-positive': !showDetails}">Following</button>
+      </div>
+      <div ng-hide="showDetails" class="all">
+         <div ng-repeat="post in posts">
+            <div class="row"  ng-if="$even">
+               <div class="Channels__item col col-50">
+                  <a href="#/tab/posts/{{post.id}}">
+                     <span class="Channels__item-dot" ng-if="!post.seen"></span>
+                     <h6 class="Channels__item-name" ng-bind-html="posts[$index].name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" ng-src="{{posts[$index].img}}" alt="">
+                  </a>
+               </div>
+               <div class="Channels__item col col-50" ng-if="posts[$index+1].hasOwnProperty('img')">
+                  <a href="#/tab/posts/{{posts[$index+1].id}}">
+                     <span class="Channels__item-dot" ng-if="!posts[$index+1].seen"></span>
+                     <h6 class="Channels__item-name" ng-bind-html="posts[$index+1].name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" ng-src="{{posts[$index+1].img}}" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="showDetails" class="follow">
+         <div ng-repeat="follow in follows">
+            <div class="row"  ng-if="$even">
+               <div class="Channels__item col col-50">
+                  <a href="#/tab/posts/{{follow.id}}">
+                     <span class="Channels__item-dot" ng-if="!follow.seen"></span>
+                     <h6 class="Channels__item-name" ng-bind-html="follows[$index].name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" ng-src="{{follows[$index].img}}" alt="">
+                  </a>
+               </div>
+               <div class="Channels__item col col-50" ng-if="follows[$index+1].hasOwnProperty('img')">
+                  <a href="#/tab/posts/{{follows[$index+1].id}}">
+                     <span class="Channels__item-dot" ng-if="!follows[$index+1].seen"></span>
+                     <h6 class="Channels__item-name" ng-bind-html="follows[$index+1].name"></h6>
+                     <img class="u-WidthFull" fallback-src="./img/logo.png" ng-src="{{follows[$index+1].img}}" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </ion-content>
+</ion-view>

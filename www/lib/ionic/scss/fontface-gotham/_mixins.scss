@@ -1,0 +1,5 @@
+@mixin fontdef($path, $type) {
+ src: url("#{$path}/#{$type}/#{$name}-#{$type}.eot?#iefix") format("embedded-opentype"),
+      url("#{$path}/#{$type}/#{$name}-#{$type}.woff") format("woff"),
+      url("#{$path}/#{$type}/#{$name}-#{$type}.otf") format("truetype");
+}

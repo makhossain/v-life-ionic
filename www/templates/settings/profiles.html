@@ -1,0 +1,80 @@
+<link href="css/settings.css" rel="stylesheet">
+<ion-view title="Profiles" hide-tabs="true">
+<ion-header-bar align-title="center">
+	<div class="buttons">
+	    <button class="button button-icon ion-ios-arrow-back calm" ui-sref="App.home"></button>
+
+		<div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+		
+		<div class="buttons buttons-right header-item">
+			<span class="right-buttons">
+				<button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+			</span>
+		</div>
+	</div>
+</ion-header-bar>
+ <ion-content scroll="false" class="profiles-main" style="font-size:120%">
+
+
+
+
+
+ 
+	<div class="row row-center padding-vertical" style="height: 27%;">
+		<div class="col profiles-avatar relative">
+			<img ng-if="profile.avatar" ng-src="{{profile.avatar}}" class="margin-auto" width="155px">
+			<img ng-if="!profile.avatar" ng-src="css/img/icon-avatar.png" class="margin-auto" width="155px">
+			<div class="text-center" ng-click="changeAvatar()"><i class="icon ion-camera"></i></div>
+		</div>
+	</div>
+	<div class="list no-margin">
+		<a class="item item-icon-right" ng-click="showChangeName()">{{profile.name}}<i class="calm icon ion-edit"></i></a>
+		<div class="item item-divider">This is not a login name or pin code. This is your identification or reference name.</div>
+	</div>
+
+
+	<div class="list light-bg" style="padding: 16px 0 0 16px">
+		<div class="calm">Phone number</div>
+		<a class="item no-border item-icon-right" style="padding: 16px 0;" ng-click="showChangePhone()">+{{profile.phone}} <i class="calm icon ion-edit"></i> </a>
+		<span class="calm">Gender: </span>
+		<label ng-click="changeGender(0)" ng-class="{'chose':profile.gender=='Male'}">
+			<div class="status-check float-left margin-right"></div>Male
+		</label>
+		<label ng-click="changeGender(1)" ng-class="{'chose':profile.gender=='Female'}">
+			<div class="status-check float-left margin-right"></div>Female
+		</label>
+	</div>
+
+	<div class="list no-margin" style="padding: 0 16px">
+	  <label class="item item-input item-select" style="border: none;padding-left: 0;">
+	    <div class="input-label calm">
+	      Language
+	    </div>
+<select class="ng-pristine ng-valid ng-not-empty ng-touched" ng-change="changeLang()" ng-model="default.lang">
+	      <!-- <option label="Bangla" value="bng">Bangla</option> -->
+	      <option label="Chinese" value="ch">Chinese</option>
+	      <option label="English" value="en">English</option>
+	    </select>
+	  </label>
+	</div>
+
+
+	<div class="list no-margin" style="padding: 0 16px">
+	  <label class="item item-input item-select" style="border: none;padding-left: 0;">
+	    <div class="input-label calm">
+	      Country
+	    </div>
+
+	    <select class="ng-pristine ng-valid ng-not-empty ng-touched" ng-change="changeCountry()" ng-model="profile.country">
+	      <option label="Bangladesh" value="Bangladesh">Bangladesh</option>
+	      <option label="China" value="China">China</option>
+	      <option label="Hong Kong" value="Hong Kong">Hong Kong</option>
+	      <option label="Thailand" value="Thailand" >Thailand</option>
+	      <option label="Singapore" value="Singapore">Singapore</option>
+	      <option label="Malaysia" value="Malaysia">Malaysia</option>
+	    </select>
+	  </label>
+	</div>
+
+ </ion-content>
+</ion-view>

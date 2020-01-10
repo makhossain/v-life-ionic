@@ -1,0 +1,158 @@
+.platform-android .bar .title.title-left {
+    text-align: center;
+}
+
+.Channels {
+    a {
+        text-decoration: none;
+    }
+    .buttons {
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    .button-small {
+        padding: 0px 30px;
+        min-height: 20px;
+        line-height: 22px;
+    }
+    .row {
+        padding: 0;
+    }
+    .col {
+        padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 1px;
+        margin-top: 2px;
+        margin-top: 30px;
+        &:nth-child(2) {
+            padding-right: 0;
+            padding-left: 1px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        text-align: center;
+        &-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            background-color: #0076FD;
+            top: 0;
+            right: 0;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        &-name {
+            margin-top: 0;
+            color: #777;
+        }
+    }
+}
+
+.Channel {
+    text-align: center;
+    padding-bottom: 0;
+    a {
+        text-decoration: none;
+    }
+    &__name {
+        color: #999;
+        font-weight: 400;
+        text-align: center;
+    }
+    .button-small {
+        margin-top: 10px;
+        padding: 3px 18px;
+        min-height: 20px;
+        line-height: 22px;
+        font-size: 12px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+    }
+    &__suscribers {
+        color: #777;
+        font-size: 12px;
+    }
+
+    &__posts {
+        // padding-top: 10px;
+        &-item {
+            position: relative;
+            margin-top: 30px;
+        }
+        &-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 500px;
+            background-color: #0076FD;
+            top: 0;
+            right: 0;
+            margin-right: 15px;
+            margin-top: 8px;
+        }
+        &-name {
+            font-size: 16px;
+            margin-top: 0;
+            color: #777;
+            margin-bottom: 0px;
+            font-weight: 400;
+            padding: 0 25px;
+        }
+        &-time {
+            font-size: 12px;
+            margin-bottom: 12px;
+            font-weight: 400;
+            padding: 0 25px;
+            color: #aaa;
+        }
+    }
+}
+
+.Post {
+
+    font-family: "Gotham Light";
+
+    &__name {
+        font-size: 16px;
+        margin-top: 0;
+        color: #777;
+        margin-bottom: 0;
+        font-weight: 400;
+        padding-top: 10px;
+        text-align: center;
+    }
+    &__time {
+        font-size: 12px;
+        margin-bottom: 12px;
+        font-weight: 400;
+        padding: 0 25px;
+        color: #aaa;
+        text-align: center;
+    }
+    &__details {
+        padding: 15px;
+        &-img {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        img {
+          height: auto;
+          margin: 0 auto;
+          display: block;
+          margin-bottom: 10px;
+        }
+    }
+    &__header {
+        padding: 10px 0;
+        text-align: center;
+        &-title {
+          color: #fff;
+          margin-bottom: 0;
+        }
+    }
+}

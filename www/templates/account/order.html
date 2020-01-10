@@ -1,0 +1,53 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<ion-header-bar align-title="center">
+<div class="buttons">
+
+  <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+  <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+  
+  <div class="buttons buttons-right header-item">
+    <span class="right-buttons">
+      <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+    </span>
+  </div>
+</div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-payouts Post">
+
+<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+<div class="Post__header" style="background-color: #3ad9c5;">
+  <h3 class="Post__header-title">Orders</h3>
+</div>
+
+<div class="Post__details">
+	
+  <div class="row row-header"> 
+    <div class="col">Order</div>
+    <div class="col">Date</div>
+    <div class="col">Status</div>
+    <div class="col">Total</div>
+  </div>
+
+
+<div class="row" ng-repeat="(indexX,level) in data.data" ng-if="data.data">
+
+    <div class="col">#{{level.id}}</div>
+    <div class="col">{{level.date}}</div>
+    <div class="col">{{level.status}}</div>
+    <div class="col" ng-bind-html="level.total"></div>
+</div>
+
+ <div class="row"  ng-if="!data.data">
+    <div class="col"><a ui-sref="App.shop" style="text-decoration: none;"><strong>Go Shop</strong></a> No order has been made yet.</div>
+  </div>
+
+</div>
+<div class="Post__details" ng-if="!data.refer">
+  
+
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<ion-header-bar align-title="center">
+    <div class="buttons">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-settings Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">My Affiliate Settings</h3>
+    </div>
+
+    <div class="Post__details">
+
+        <div class="m-btm-30">
+            <h4>Profile Settings</h4>
+            <label class="item item-input">
+                <span class="input-label">Payment Email: </span>
+                <input type="text" placeholder="Your payment email" value="{{data.payment_email}}">
+            </label>
+
+            <ion-checkbox class="checkbox-calm">Enable New Referral Notifications</ion-checkbox>
+        </div>
+
+        <div>
+            <h4>Custom Slug Settings</h4>
+            <label class="item item-input">
+                <span class="input-label">Custom Slug: </span>
+                <input type="text" placeholder="Custom Slug Settings" value="{{data.custom_slug}}">
+            </label>
+        </div>
+
+        <button class="button button-calm button-block button-outline activated">Save Settings</button>
+
+    </div>
+
+
+    </ion-content>
+</ion-view>

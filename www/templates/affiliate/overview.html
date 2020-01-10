@@ -1,0 +1,124 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+
+<ion-header-bar align-title="center">
+    <div class="buttons">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Affiliate Affiliate-network Post">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher> 
+    <div class="Post__header" style="background-color: #3ad9c5;">
+        <h3 class="Post__header-title">Overview</h3>
+    </div>
+
+    <div class="Post__details">
+
+        <!-- statistics started -->
+        <div class="card">
+          <div class="item" style="background-image: url('http://cognisance.life/wp-content/plugins/cs-affiliate-system/assets/images/top_aff_bk_1.png')">
+            <h2>{{data.fname}} {{data.lname}}</h2>
+            <p>Affiliate since {{data.affdate}}</p>
+          </div>
+          <div class="item item-body" style="padding: 0;overflow: hidden;">
+            <div class="row">
+              <p style="margin: 0"><button class="button aff-rank-btn ion-android-star-outline button-positive activated"> {{data.rank}}</button></p>
+            </div>
+            <div class="row">              
+              <p style="margin: 0"><button class="button aff-rank-btn ion-arrow-graph-up-right button-positive activated"> Until the next Rank... <strong>{{data.achieved}} %</strong></button>  </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-divider" style="background-color: #663399;color:#fff">
+            Referral Commission
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.c_mo_rf_com_pending}} {{data.currency}}</h2>
+            <p>Pending</p>
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.c_mo_rf_com_added_to_wallet}} {{data.currency}}</h2>
+            <p>Added to wallet</p>
+          </div>          
+        </div>   
+
+        <div class="card">
+          <div class="item item-divider bg-aflt-light-red">  
+            Leadership Bonus
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.leadership_bonus_pending}} {{data.currency}}</h2>
+            <p>Pending</p>
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.leadership_bonus_added_to_wallet}} {{data.currency}}</h2>
+            <p>Added to wallet</p>
+          </div>          
+        </div>  
+
+
+        <div class="card">
+          <div class="item item-divider"  style="background-color:#488aff;color:#fff">  
+            Global Bonus
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.global_bonus_pending}} {{data.currency}}</h2>
+            <p>Pending</p>
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.global_bonus_added_to_wallet}} {{data.currency}}</h2>
+            <p>Added to wallet</p>
+          </div>          
+        </div>            
+
+        <div class="card">
+          <div class="item item-divider" style="background-color:#4f585f;color:#fff">  
+            Total Withdraw
+          </div>
+          <div class="item item-text-wrap">
+            <h2>{{data.withdraw_total}} {{data.currency}}</h2>
+          </div>         
+        </div> 
+
+        <div class="card">
+          <div class="item item-divider item-text-wrap bg-aflt-dark">  
+              Available amount in wallet
+          </div>
+          <div class="item item-text-wrap">  
+            <h2>{{data.available_wallet}} {{data.currency}}</h2>
+            <p>
+              From Affiliate = {{data.from_affiliate}} 
+            </p>
+            <p>
+              From External Source = {{data.from_external_source}} 
+            </p>
+            <p>
+              Total Withdraw = {{data.withdraw_total}}
+            </p>
+            <p>
+              Used for purchase = {{data.used_for_purchase}}
+            </p>
+            <p>
+              (Affiliate + External Source) - (Purchase + Withdraw) = {{data.available_wallet}}
+            </p>                                                             
+       
+          </div>  
+        </div>  
+        <!-- statistics end -->
+
+    </div> <!-- end Post__details -->
+
+    </ion-content>
+
+</ion-view>

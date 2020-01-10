@@ -1,0 +1,102 @@
+.contacts{
+	&-update{
+		.button{
+			display: block;
+			margin: auto;
+		}
+
+	}
+}
+
+.messages{
+
+	.title{
+		left: 47px;
+		right: 80px;
+	}
+
+	&-detail{
+		.tab-item{
+			.icon{
+				height: 32px;
+    			font-size: 32px;
+			}
+		}
+		.title{
+			left: 47px;
+    		right: 80px;
+    		line-height: 22px;
+    		padding: 10px 0;
+		}
+		.User__avatar{
+			width: 42px;
+			height: 42px;
+		}
+	}
+}
+
+.msg-group-icons{
+	.list{
+		width: 100%;
+	}
+	ion-item{
+		display: flex;
+    	justify-content: center;
+		border:none;	
+		
+		.button-icon{
+			height: 32px;
+			font-size: 32px;
+		}
+	}
+}
+
+.modal{
+	&-search{
+		&-location{
+			.title{
+				input{
+				    height: 100%;
+				    background: none;
+				    color: #fff;
+				    font-size: 110%;
+				    line-height: 30px;
+				    margin-top: -5px;
+				}	
+			}
+		}
+	}
+	&-nearby{
+		&-settings{
+			button{
+				display: block;
+				margin: auto;
+			}
+		}
+	}
+}
+
+.settings{
+	&-password{
+		button{
+			display: block;
+			margin: auto;
+		}
+	}
+}
+
+.broadcast {
+	.bar {
+		&-subheader {
+			border: none;
+
+			.list {
+				width: 100%;
+
+				.item {
+					border: none;
+				}
+			}
+		}
+	}
+} 

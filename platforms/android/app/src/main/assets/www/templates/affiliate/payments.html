@@ -1,0 +1,92 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center">
+      <div class="buttons">
+         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+         <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="./img/logo-inline.png"></div>
+         <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+            <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+            </span>
+         </div>
+      </div>
+   </ion-header-bar>
+   <ion-content class="Affiliate Affiliate-network Post">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <pre class="hide">{{data}}</pre>
+      <div class="Post__header" style="background-color: #3ad9c5;">
+         <h3 class="Post__header-title">Payments</h3>
+      </div>
+      <div class="Post__details">
+         <!-- statistics started -->
+         <div class="card">
+            <div class="item item-text-wrap">
+               <h2>{{data.total_transaction_amount}}</h2>
+               Total Transactions Amount
+            </div>
+         </div>
+         <div class="card">
+            <div class="item item-text-wrap">
+               <h2>{{data.total_transaction}}</h2>
+               Total Transactions
+            </div>
+         </div>
+         <!-- statistics end -->
+         <!-- shorting form started -->
+         <div class="list">
+            <div class="row m-btm-20">
+               <div class="col-50">
+                  <label class="item item-input">
+                  <input type="text" placeholder="From - yyyy/mm/dd" ng-model="FilterData.start" ng-click="filterstart();">
+                  </label>
+               </div>
+               <div class="col-50">
+                  <label class="item item-input">
+                  <input type="text" placeholder="To - yyyy/mm/dd" ng-model="FilterData.end" ng-click="filterend();">
+                  </label>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-80">
+                  <label class="item item-input item-select">
+                     <div class="input-label">
+                        Referral Type
+                     </div>
+                     <select ng-model="FilterData.status">
+                        <option value="-1">-</option>
+                        <option value="0">Fail</option>
+                        <option value="1">Pending</option>
+                        <option value="2">Completed</option>
+                     </select>
+                  </label>
+               </div>
+               <div class="col-20">
+                  <button class="button button-positive activated" ng-click="getFilter()">Apply</button>
+               </div>
+            </div>
+         </div>
+         <!-- list -->
+         <!-- shorting form end -->
+         <!-- refferal table started -->
+         <div class="row row-header">
+            <div class="col">Amount</div>
+            <div class="col">P. Type</div>
+            <div class="col">Date</div>
+            <div class="col">Update</div>
+            <div class="col">Status</div>
+         </div>
+         <div class="row" ng-repeat="item in data.listing_items">
+            <div class="col">{{item.amount}} {{item.currency}}</div>
+            <div class="col" ng-if="item.payment_type == 'bank_transfer'">Bank Transfer</div>
+            <div class="col" ng-if="item.payment_type!='bank_transfer'">{{item.payment_type}}</div>
+            <div class="col">{{item.create_date}}</div>
+            <div class="col">{{item.update_date}}</div>
+            <div class="col" ng-if="item.status==0">Fail</div>
+            <div class="col" ng-if="item.status==1">Pending</div>
+            <div class="col" ng-if="item.status==2">Completed</div>
+         </div>
+         <!-- refferal table end -->
+      </div>
+      <!-- end Post__details -->
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="1%" icon="ion-loading-c"> </ion-infinite-scroll>
+   </ion-content>
+</ion-view>

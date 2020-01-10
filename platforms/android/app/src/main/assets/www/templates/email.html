@@ -1,0 +1,53 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />" hide-tabs="true">
+<ion-header-bar align-title="center">
+    <div class="buttons">
+    <div class="buttons" ui-sref="App.home">
+        <button class="button button-icon ion-ios-arrow-back calm"></button>
+    </div>
+
+        <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+        
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+                <button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()" ng-if="notifyicon"></button>
+            </span>
+        </div>
+    </div>
+</ion-header-bar>
+
+<ion-content class="Post">
+
+    <div class="Post__header" style="background-image: url(http://v-life.co/wp-content/themes/scalia/images/backgrounds/title/06.jpg);background-color: #3ad9c5;">
+        <h2 class="Post__header-title">Contact Us</h2>
+    </div>
+
+<div class="list">
+
+
+<!--
+    <label class="item item-input">
+        <i class="icon ion-ios-person-outline placeholder-icon calm"></i>
+        <input type="text" placeholder="Your Name" required>
+    </label>
+    
+    <label class="item item-input">
+        <i class="icon ion-ios-email-outline placeholder-icon calm"></i>
+        <input type="text" placeholder="Your Email" required>
+    </label>
+-->
+    <label class="item item-input">
+        <i class="icon ion-ios-paper-outline placeholder-icon calm"></i>
+        <input type="text" placeholder="Subject" ng-model="mail.sub">
+    </label>
+
+    <label class="item item-input">
+        <i class="icon ion-ios-filing-outline placeholder-icon calm"></i>
+        <textarea type="text" placeholder="Your Message" ng-model="mail.msg"></textarea>
+    </label>
+    
+    <button class="button button-calm button-block button-outline activated" ng-click="sendEmail()">Send Email</button>
+
+</div>
+ 
+</ion-content>
+</ion-view>

@@ -1,0 +1,25 @@
+.wcsatt-sub-options{
+	display:block;
+	font-size: 100%;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.shop {
+	&-cart{
+		&-modal{
+		}
+	}
+	&-browse, &-product{
+		.item-radio { 
+			.item-content {
+				padding: 10px;
+			    font-size: 13px;
+			    min-height: 0;
+			}
+			.radio-icon{
+				padding: 0 5px;
+				color: #3ad9c5;
+			}
+		}
+	}
+}

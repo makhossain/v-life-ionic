@@ -1,0 +1,32 @@
+<link href="css/channel.css" rel="stylesheet">
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+   <ion-header-bar align-title="center" ng-hide="choseMessagesCount>0">
+<!--       <button ng-click="$ionicGoBack()" class="button back-button hide buttons  button-clear header-item">
+      <i class="icon ion-ios-arrow-back"></i> 
+      <span class="back-text"></span>
+      </button> -->
+      <a class="button button-icon ion-ios-arrow-back calm" ng-click="myGoBack()" style="margin-top: 8px;"></a>
+      <div class="buttons buttons-left header-item">
+<!--          <span class="left-buttons">
+         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+         </span> -->
+         <div class="wall-header__like" style="border-bottom:none; right: 0px;">
+            <button class="button button-icon icon ion-android-share-alt" ng-click="sharePost(data.post.name +': ' + ' ' + data.post.url)" style=""></button>
+            <button class="button button-icon icon ion-ios-heart-outline" ng-click="follow()"></button>
+            <a href="#/channellikers/{{data.category.id}}/{{data.post.id}}" style="10px 5px">{{totallike}}</a>
+         </div>
+      </div>
+      <div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+   </ion-header-bar>
+   <ion-content class="chose-messages has-header has-tabs" style="top:55px;">
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"> </ion-refresher>
+      <span class="" ng-init="markasseen(data.post.id)"></span>
+      <h4 class="Channel__name" ng-bind-html="data.category.name"></h4>
+      <h5 class="Post__name" ng-bind-html="data.post.name"></h5>
+      <p class="Post__time"><span >{{data.post.time}}</span></p>
+      <img class="u-WidthFull" fallback-src="./img/logo.png" ng-src="{{data.post.img}}">
+      <div class="Post__details">
+         <div ng-bind-html="data.post.content"></div>
+      </div>
+   </ion-content>
+</ion-view>

@@ -1,0 +1,8 @@
+1. Payment method (paypal, stripe, wallet)
+2. Enable shipping method 
+3. Integration easyship api 
+4. Calculate shipping rate
+5. Checkout form validation (phone, country, number, payment method, shipping method mandatory)
+6. Redirect to order page after checkout
+7. Add/Remove item in Cart page
+8. Added all country name in sign up page country list

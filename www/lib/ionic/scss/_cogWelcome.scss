@@ -1,0 +1,487 @@
+/* Empty. Add your own CSS if you like */
+.Welcome {
+    background-image: url(../img/welcome_protrait.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.Welcome__logo {
+    position: relative;
+    margin-top: 30%;
+    text-align: center;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Welcome__logo img {
+    width: 100%
+}
+
+.WelcomeButtons {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    /*margin-bottom: 2px;*/
+    /*padding: 2px;*/
+}
+
+.WelcomeButtons .button {
+    width: 49.4%;
+    border-radius: 0;
+}
+
+.slide-box {
+    height: 100%;
+    text-align: center;
+}
+
+/*Intro*/
+.IntroBar.bar-stable {
+    background-color: transparent;
+    border-color: transparent;
+    background-image: none;
+}
+
+.Intro {
+    padding-top: 60px;
+    // border: 1px solid red;
+    min-height: 500px;
+    &-midContainer {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 77px;
+        margin-bottom: 92px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        &--search {
+            margin-top: 47px;
+            margin-bottom: 46px;
+        }
+    }
+}
+.Intro__logo {
+    position: relative;
+    text-align: center;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Intro__logo img {
+    width: 100%
+}
+
+.Intro__search {
+    .item-input-inset {
+        padding-top: 0;
+        padding-bottom: 0;
+        // border-bottom: 1px solid rgba(0,0,0,.05);
+        background-color: #EBEBEB;
+        .item-input-wrapper {
+            background-color: transparent;
+            .placeholder-icon {
+                margin-right: 7px;
+            }
+            input {
+                width: 100%;
+                // background-color: #ccc;
+                padding-left: 0;
+                padding-right: 0;
+                height: 40px;
+                border-bottom: 2px solid rgba(0,0,0,.1);
+            }
+        }
+    }
+    .button {
+        // background-color: #ccc !important;
+        font-size: 14px;
+    }
+}
+
+.Intro__message {
+    padding: 0 40px 0;
+    &--fullWidth {
+        text-align: left;
+        padding: 0;
+    }
+    &-text {
+        font-size: 20px;
+        padding: 20px;
+    }
+}
+.Intro__message .Tags {
+    margin-top: 30px;
+}
+.Intro__message .Tag {
+    background-color: rgba($calm, .8);
+    padding: 10px 20px;
+    border-radius: 500px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+}
+.Intro__message ~ .Intro__message {
+    padding-top: 0;
+}
+
+.Intro__Icon {
+    margin: 20px auto;
+}
+.Intro__Icon-avator {
+    width: 95px;
+    height: 95px;
+    background-color: rgba($calm, .6);
+    border-radius: 500px;
+    margin: 0 auto 5px;
+}
+.Intro__Icon-avator .icon {
+    font-size: 50px;
+    color: #fff;
+    line-height: 100px;
+}
+
+.Intro__button.button {
+    display: block;
+    border: 2px solid $calm;
+    color: $calm;
+    background-color: transparent;
+    border-radius: 500px;
+    height: 52px;
+    width: 52px;
+    // position: absolute;
+    bottom: 0;
+    margin-left: -26px;
+    margin-bottom: 30px;
+    z-index: 9999999999999999;
+}
+
+.Intro__button-full.button {
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+}
+
+.Intro__form {
+    text-align: left;
+    &--name {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    &--genderBirth {
+        padding-left: 30px;
+        padding-right: 30px;
+        .item-input {
+            padding-left: 0;
+            padding-right: 0;
+            .input-label {
+                padding: 10px 0 10px;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: #888;
+                width: 100%;
+                max-width: 100%;
+                display: block;
+                text-align: center;
+            }
+            &--radioGender {
+                border-bottom-color: transparent;
+                .item-radio {
+                    display: inline-block;
+                    border: 0;
+                    margin: 0;
+                    padding: 5px 5px 0;
+                    .item-content {
+                        border: 1px solid rgba($calm, 0.8);
+                        background-color: transparent;
+                        padding: 6px 16px;
+                        border-radius: 500px;
+                        display: inline-block;
+                        font-size: 14px;
+                        color: #333;
+                        text-decoration: none;
+                    }
+
+                    input:checked {
+                        + .radio-content {
+                            .item-content {
+                                background-color: rgba($calm, 0.8);
+                            }
+                            .radio-icon {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .item-input {
+        text-align: center;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        margin: 0;
+    }
+
+    &--tel {
+        margin: 35px 0 45px;
+        text-align: center;
+        .item-input {
+            display: table-cell;
+            &--inlineTelInput {
+                // background-color: #ccc;
+                padding: 0;
+                height: 40px;
+                .Intro__form-input {
+                    padding-right: 0;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .item-select {
+        &--left {
+            position: relative;
+            width: 32%;
+            text-align: left;
+            padding: 0;
+            // height: 40px;
+            border-bottom-color: transparent;
+            select {
+                left: 0;
+                right: 0;
+                padding: 0 40px 0 16px;
+                width: 100%;
+                // min-width: 100%;
+                max-width: 100%;
+                // background-color: #ccc;
+                direction: ltr;
+                font-size: 18px;
+            }
+        }
+        &::after {
+            position: absolute;
+            top: 50%;
+            right: 25px;
+            margin-top: -3px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            color: #999;
+            content: "";
+            pointer-events: none;
+        }
+    }
+}
+// .Intro__form-input {
+//     text-align: right;
+// }
+.input--placeholderCenter {
+    input {
+        text-align: center;
+    }
+    ::-webkit-input-placeholder {
+       text-align: center;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       text-align: center;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+       text-align: center;
+    }
+    :-ms-input-placeholder {
+       text-align: center;
+    }
+}
+
+.item-input--calmFill {
+    background-color: rgba($calm, .2);
+    border-radius: 4px;
+    border-color: rgba($calm, .5);
+    // input[type="text"] {
+    //     color: #fff;
+    // }
+}
+
+/**Referred-list */
+.Referred-list .item.item-checkbox {
+    padding-top:  0;
+    padding-bottom: 0;
+}
+.Referred-list .item.item-avatar {
+    padding-left: 50px;
+}
+
+.Referred-list .item-avatar > img:first-child {
+    left: 0;
+}
+
+
+.Referred-list {
+    .checkbox input:checked + .checkbox-icon::before {
+        border-width: 2px;
+        background: transparent;
+        border-color: $calm;
+    }
+
+    .checkbox input::after, .checkbox-icon::after {
+        border-width: 2px;
+        border-color: $calm;
+    }
+
+    .checkbox-square .checkbox-icon::before {
+        border-radius: 50%;
+        border-width: 1px;
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        margin-left: auto;
+    }
+
+    .checkbox-square .checkbox-icon::after {
+        // position: absolute;
+        top: 33%;
+        left: 25%;
+        // display: table;
+        // width: 14px;
+        // height: 6px;
+        // border: 1px solid #fff;
+        // border-top: 0;
+        // border-right: 0;
+        // content: ' ';
+        // opacity: 0;
+    }
+}
+
+
+
+/*lukano css*/
+.Intro .slider-pager {
+    background-color: transparent;
+    display: table;
+    position: absolute;
+    top: 0;
+    margin-top: 12px;
+}
+
+.Intro .slider-pager .slider-pager-page .icon  {
+    display: none;
+}
+
+.Intro .slider-pager .slider-pager-page {
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 500px;
+    width: 10px;
+    height: 10px;
+    opacity: .4;
+}
+
+.Intro .slider-pager .slider-pager-page.active {
+    background-color: #000;
+    opacity: .4;
+}
+
+//  Modal Backdrop
+.modalMap {
+    .bar {
+        button.button-clear.icon-left {
+            &::before {
+                font-size: 22px;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+//
+
+// Platform Android
+
+.platform-android {
+    .action-sheet {
+        margin-left: 8px;
+        margin-right: 8px;
+        width: auto;
+        z-index: 11;
+        overflow: hidden;
+        .action-sheet-group {
+            margin-bottom: 8px;
+            border-radius: 4px;
+            background-color: #fff;
+            overflow: hidden;
+            .button {
+                border-width: 1px 0px 0px 0px;
+            }
+        }
+        .action-sheet-title {
+            padding: 16px;
+            color: #8f8f8f;
+            text-align: center;
+            font-size: 13px;
+        }
+        .button {
+            display: block;
+            padding: 1px;
+            width: 100%;
+            border-radius: 0;
+            border-color: #d1d3d6;
+            background-color: transparent;
+            color: $calm;
+            font-size: 21px;
+            vertical-align: top;
+            text-align: center;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.action-sheet {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: auto;
+    z-index: 11;
+    overflow: hidden;
+    .action-sheet-group {
+        margin-bottom: 8px;
+        border-radius: 4px;
+        background-color: #fff;
+        overflow: hidden;
+        .button {
+            border-width: 1px 0px 0px 0px;
+        }
+    }
+    .action-sheet-title {
+        padding: 16px;
+        color: #8f8f8f;
+        text-align: center;
+        font-size: 13px;
+    }
+    .button {
+        display: block;
+        padding: 1px;
+        width: 100%;
+        border-radius: 0;
+        border-color: #d1d3d6;
+        background-color: transparent;
+        color: $calm;
+        font-size: 21px;
+        vertical-align: top;
+        text-align: center;
+        text-overflow: ellipsis;
+        &:hover,
+        &:focus {
+            color: $calm;
+        }
+    }
+}

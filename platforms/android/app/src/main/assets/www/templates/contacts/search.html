@@ -1,0 +1,29 @@
+<ion-view view-title="<img src='./img/logo-inline.png' />">
+<link href="css/contacts.css" rel="stylesheet">
+
+	<ion-header-bar align-title="center">
+		<div class="buttons">
+		    <button class="button button-icon ion-ios-arrow-back calm" ng-click="goBack()"></button>
+
+			<div class="title title-center header-item" style="left: 57px; right: 57px;"><img src="././img/logo-inline.png"></div>
+			
+			<div class="buttons buttons-right header-item">
+				<span class="right-buttons">
+					<button class="button button-icon icon ion-ios-bell-outline" ng-click="notifications()"></button>
+				</span>
+			</div>
+		</div>
+	</ion-header-bar>
+
+ <ion-content class="messages broadcast messages-detail">
+	<div class="list contacts-recommended">
+		<a class="item item-avatar">
+			<img ng-if="contact.avatar" ng-src="{{contact.avatar}}">
+			<img ng-if="!contact.avatar" ng-src="css/img/avatar/{{contact.name | firstChar}}.png">
+			<h2>{{contact.name}}</h2>
+			<p>+{{contact.phone}}</p>
+			<button ng-show="!isFriend" class="button button-outline button-positive" ng-click="inviteFriend(contact.$id)">+ Add</button>
+		</a>
+	</div>
+ </ion-content>
+</ion-view>
