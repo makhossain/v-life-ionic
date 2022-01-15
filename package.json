@@ -37,7 +37,7 @@
     "com.paypal.cordova.mobilesdk": "~3.3.1",
     "gulp": "^4.0.0",
     "gulp-util": "^2.2.14",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.8.5"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
