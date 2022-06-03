@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "description": "Helioz365 official app",
   "dependencies": {
-    "@angular/core": "^4.0.0",
+    "@angular/core": "^11.0.5",
     "@ionic-native/core": "^3.2.2",
     "@ionic-native/social-sharing": "^3.2.2",
     "angular-moment": "^1.0.0",
