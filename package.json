@@ -23,7 +23,7 @@
     "gulp-sass": "^3.2.1",
     "intl": "^1.2.5",
     "ionic-plugin-keyboard": "~2.2.1",
-    "moment": "^2.16.0",
+    "moment": "^2.29.4",
     "node-sass": "^2.1.1",
     "rxjs": "^5.2.0",
     "satellizer": "^0.13.1",
